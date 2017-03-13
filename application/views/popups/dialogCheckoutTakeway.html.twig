@@ -1,0 +1,56 @@
+<!-- Modal -->
+<div class="modal fade" id="modal-checkout-takeway" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                <h4 class="modal-title" id="">Takeaway/Table Checkout</h4>
+                <hr>
+
+                <p>
+                    <input id="input-total" class="form-control input-lg" type="number" placeholder="Amount Given">
+                </p>
+
+
+                <p>
+                    <div class="btn-group btn-group-justified" id="modal-checkout-takeway-payment-types"></div>
+                    <div id="takeaway-taxes-container"></div>
+                </p>
+
+
+                <hr>
+
+                <p>
+                    <label for="checkout-takeaway-note">Note</label>
+                    <textarea placeholder="Please input you note here..." class="form-control input-lg" rows="1" name="checkout-note" id="checkout-takeaway-note"></textarea>
+                </p>
+                <p>
+                    <label for="modal-checkout-takeway-container">Select Table/Takeway111111</label>
+                    <select class="form-control input-lg" id="modal-checkout-takeway-container">
+                    </select>
+                </p>
+
+                <p>
+                <div class="row">
+                    <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+                        Print on:
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+                        <select class="form-control">
+                            <option>Printer 1</option>
+                            <option>Printer 2</option>
+                        </select>
+                    </div>
+                </div>
+                </p>
+
+                <p>
+                    <button class="btn btn-success btn-block btn-lg" onclick="myCart.checkout();">Finish</button>
+                </p>
+
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

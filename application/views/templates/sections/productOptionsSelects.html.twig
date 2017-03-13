@@ -1,0 +1,185 @@
+<!--script id="template-product-options-selectors" type="text/template">
+    <div class="padder productsOptionsSelects_second">
+        <div id="sidr-product-options-h">
+        <form onsubmit="return false;" id="product-extra-options_special_item">
+
+          <button type="button" class="close close-sidr" data-target="options" aria-hidden="true">&times;</button>
+
+    {% raw %}
+            <div>
+                <div>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#order-description">
+                        <h4 style="text-decoration: underline">{{ product_name }}</h4>
+                    </a>
+                    <div id="order-description" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>{{{ description }}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    {% endraw %}
+
+
+
+            <div class="inline-form-quantity">
+                <button type="button" class="btn btn-primary" onclick="quantityProductOptions('-1');">
+                    <span class="glyphicon glyphicon-minus"></span>
+                </button>
+                <input type="number" class="form-group" value="1" id="p-quantity" readonly="readonly">
+                <button type="button" class="btn btn-primary" onclick="quantityProductOptions('+1');">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </div>
+
+
+            <div class="form-group">
+               <textarea cols="40" rows="3" name="product_note" id="product-note-textarea" placeholder="Please write your special instructions here"></textarea>
+            </div>
+
+    {% raw %}
+      <div>
+        <input type="hidden" id="p-productId" value="{{ product_id }}">
+        <input type="hidden" id="p-productName" value="{{ product_name }}">
+        <input type="hidden" id="p-productPrice" value="{{ product_price }}">
+        <input type="hidden" id="p-has_coupon" value="{{ has_coupon }}">
+        <input type="hidden" id="p-id" value="">
+
+        {{#items}}
+          <div class="variation_selector">
+              {{#selectbox}}
+                  <div class="options_name_deal">
+                        {{ name }}
+                  </div>
+                  <select class="half-selector-option-all" name="{{ name }}" data-type="product">
+                      {{#options}}
+                      <option value="{{ variation_id }}" data-halfFee="{{ half_pizza_group_fee }}" data-price="{{ variation_price }}" data-name="{{ variation_name }}">{{ variation_name }}{{#hasPrice}} ($<span class="var_price">{{ variation_price }}</span>){{/hasPrice}}</option>
+                      {{/options}}
+                  </select>
+              {{/selectbox}}
+          </div>
+
+          {{^selectbox}}
+            <div class="options_name_deal">
+                        {{ name }}
+            </div>
+
+            <div class="btn-group half-selector-option-all-buttons variation_selector" data-buttons_container="true" name="variation[{{ name }}]">
+            {{#options}}
+               <label class="btn btn-default po-custom-radio-all-buttons">
+                  <input type="radio" name="{{ name }}" value="{{ variation_id }}" data-type="product"  data-price="{{ variation_price }}"  data-name="{{ variation_name }}"/>{{ variation_name }}
+               </label>
+            {{/options}}
+            </div>
+          {{/selectbox}}
+
+          <div id="first-ingredients-1" class="ingredients-selector" data-ingredients_container="1">
+          </div>
+          <div id="half-1" class="half-selector" data-halfs_container="1">
+          </div>
+        {{/items}}
+
+
+      </div>
+    {% endraw %}
+            <hr>
+            <br><br><br>
+                <p>
+                    <button class="btn btn-primary btn-block" id="trigger-cartadd"><span class="btn-text">Add</span> ($<span class="btn-price"></span>)</button>
+                </p>
+
+            </form>
+        </div>
+    </div>
+</script-->
+
+<template id="panel-product-options-selectors">
+    
+  <form onsubmit="return false;" id="product-extra-options_special_item">
+
+    <button type="button" class="close close-sidr" aria-hidden="true" v-on:click="close()">&times;</button>
+  {% raw %}
+    <div>
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#order-description">
+                <h4 style="text-decoration: underline">{{ d.product_name }}</h4>
+            </a>
+            <div id="order-description" class="panel-collapse collapse">
+                <div class="panel-body">                    
+                  <p v-html="d.description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+  {% endraw %}
+
+    <div class="inline-form-quantity">
+      <button type="button" class="btn btn-primary" v-on:click="quantityProductOptions('-1')">
+          <span class="glyphicon glyphicon-minus"></span>
+      </button>
+      <input type="number" class="form-group" readonly="readonly" v-bind:value="d.quantity">      
+      <button type="button" class="btn btn-primary" v-on:click="quantityProductOptions('+1')">
+          <span class="glyphicon glyphicon-plus"></span>
+      </button>
+    </div>
+
+    <div class="form-group">
+       <textarea cols="40" rows="3" placeholder="Please write your special instructions here" v-model="d.product_note"></textarea>
+    </div>
+
+  {% raw %}
+      <div >     
+
+        <div v-for="(item, index) in d.items" >        
+          <div class="variation_selector" v-if="item.selectbox">
+
+            <div class="options_name_deal">
+                  {{ item.name }}
+            </div>            
+            <select class="half-selector-option-all" v-model="item.checkedIdx" v-on:change="calculateTotalPrice();">
+                <option v-bind:value="i" v-for="(option, i) in item.options">
+                  {{option.variation_name}}
+                  <span class="var_price" v-if="option.hasPrice">($ {{option.variation_price}}  )</span>
+                </option>                
+            </select>
+              
+          </div>
+
+          <div class="options_name_deal" v-if="item.selectbox == false">
+              {{ item.name }}
+          </div>
+          <div class="half-selector-option-all-buttons variation_selector" v-if="item.selectbox == false">            
+            <label class="btn btn-default po-custom-radio-all-buttons" v-bind:class="{active: item.checkedIdx == j }" v-for="(option, j) in item.options">
+              <input type="radio" v-on:click="calculateTotalPrice();" v-bind:name="item.name" v-bind:value="j" v-model="item.checkedIdx" />{{ option.variation_name }}
+            </label>            
+          </div>
+         
+          <div id="first-ingredients-1" class="ingredients-selector" v-if="item.options[item.checkedIdx].ingredient">         
+              <panel-ingredients :d="item.options[item.checkedIdx].ingredient" v-if="item.options[item.checkedIdx].ingredient.items.length > 0"></panel-ingredients>
+          </div>
+          
+          <div id="half-1" class="half-selector" v-if="item.options[item.checkedIdx].half">
+            <panel-halfs :d="item.options[item.checkedIdx].half"></panel-halfs>
+          </div>
+        </div>
+
+      </div>
+   
+      <hr>
+      <br><br><br>
+      <p>                   
+        <button class="btn btn-primary btn-block" id="trigger-cartadd" style="display: inline-block;" v-on:click="clickedTrigger_CartAdd()"><span class="btn-text">{{d.btn_text}}</span> ($ <span class="btn-price">{{ d.total_price }}</span> )</button>
+      </p>
+  {% endraw %}
+  </form>
+     
+</template>
+
+<script id="template-product-options-selectors" type="text/template">
+    <div class="padder productsOptionsSelects_second">        
+        <div id="sidr-product-options-h">        
+            <!--panel-product-options-selectors :d="product_info"></panel-product-options-selectors-->
+            <component :is="currentView" :d="product_info"></component>           
+        </div>
+    </div>
+</script>

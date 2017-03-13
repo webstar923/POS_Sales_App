@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+{#<html manifest="posapp.appcache">#}
+<html>
+<head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!-- Bootstrap -->
+    <link href="{{ base_url }}static/dist/css/bootstrap.min.css?v=1" rel="stylesheet">
+    <!-- Include Sidr bundled CSS theme -->
+    <link rel="stylesheet" href="{{ base_url }}static/library/sidr-package-1.2.1/stylesheets/jquery.sidr.light.css?v=1">
+
+    <!-- Include Bootstrap Slider CSS -->
+    <link rel="stylesheet" href="{{ base_url }}static/library/bootstrap-slider/slider.css?v=1">
+
+
+    <!-- Include Bootstrap Switcher CSS -->
+    <link rel="stylesheet" href="{{ base_url }}static/library/bootstrap-switcher/bootstrap-switch.min.css?v=1">
+
+    <!-- Include Bootstrap Datepicker CSS -->
+    <link rel="stylesheet" href="{{ base_url }}static/library/bootstrap-datepicker/bootstrap-datetimepicker.min.css?v=1">
+
+    <!-- Include Idangerous Swiper CSS -->
+    <link rel="stylesheet" href="{{ base_url }}static/library/idangerous-swiper/idangerous.swiper.css?v=1">
+
+    <!-- Include Bootstrap Vertical CSS -->
+    <link rel="stylesheet" href="{{ base_url }}static/library/bootstrap-vertical/bootstrap.vertical-tabs.css?v=1">
+
+    <!-- Include Custom CSS rules -->
+    <link rel="stylesheet" href="{{ base_url }}static/custom/css/style.css?v={{js_version_reload}}">
+    <link rel="stylesheet" href="{{ base_url }}static/custom/css/style2.css?v={{js_version_reload}}">
+    <link rel="stylesheet" href="{{ base_url }}static/custom/css/loader.css?v={{js_version_reload}}">
+
+    <!-- Include toastr CSS rules -->
+    <link rel="stylesheet" href="{{ base_url }}static/library/toastr/toastr.min.css">
+
+{#    <!-- Include Bootstrap Typeahead Plugin -->
+    <link rel="stylesheet" href="{{ base_url }}static/library/typeahead/typeahead.css?v=1">#}
+
+    <link href="{{ base_url }}static/library/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ base_url }}static/library/select2-3.5.1/select2.css?v={{js_version_reload}}">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js?v=1"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js?v=1"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="field_for_currency_calculations"  class="hidden"> </div>
+<!--<div id="loader-wrapper"><div id="loader"></div></div>
+-->
+<div id="delayOverflow"><img src="{{ base_url }}static/dist/img/big-preload.gif" alt="Loading..."/></div>
+<div id="fullScreenLoader" class="hide"><p><img src="{{ base_url }}static/dist/img/big-preload.gif" alt="Loading..."/> <span id="status_text">Loading data...</span> </p></div>
+<div id="fulloverflow" class="hide"></div>
+<div id="loader"></div>
+<div id="res"></div>
+
+<div id="page-home">
+
+    {% include 'parts/footer.html.twig' %}
+    {% include 'parts/paymentTypesBlock.html.twig' %}
+
+    {% include 'page-home/topCall.html.twig' %}
+    {% include 'page-home/topAccordeon.html.twig' %}
+
+    {% include 'page-home/productsListing.html.twig' %}
+
+    <!-- Side Menus -->
+    {% include 'slidemenus/sideOrders.html.twig' %}
+    {% include 'slidemenus/slideCategories.html.twig' %}
+    {% include 'slidemenus/sideProductOptions.html.twig' %}
+    <!-- END Side Menus -->
+</div>
+<div id="page-checkout">
+
+</div>
+
+
+
+
+
+
+<!-- Dialog Blocks -->
+{% include 'popups/dialogNewCall.html.twig' %}
+{% include 'popups/dialogUniversalProduct.html.twig' %}
+{% include 'popups/dialogUserSettings.html.twig' %}
+{% include 'popups/dialogSwitchUser.html.twig' %}
+{% include 'popups/dialogSwitchUsers.html.twig' %}
+{% include 'popups/dialogCheckoutType.html.twig' %}
+{% include 'popups/dialogParkOrder.html.twig' %}
+{% include 'popups/dialogVoidOrder.html.twig' %}
+{% include 'popups/dialogOrderNote.html.twig' %}
+{% include 'popups/dialogVoidClosedOrder.html.twig' %}
+{% include 'popups/dialogVoidClosedOrderConfirm.html.twig' %}
+{% include 'popups/dialogMinPriceNotify.html.twig' %}
+{% include 'popups/dialogDiscount.html.twig' %}
+<!-- END Dialog Blocks -->
+
+{% include 'templates/templatesLoader.html.twig' %}
+
+
+<!-- Online/offline check -->
+<script src="{{ base_url }}static/dist/js/onCheck.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{{ base_url }}static/library/jquery/jquery.js?v=1"></script>
+
+<script src="{{ base_url }}static/library/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
+
+<script src="{{ base_url }}static/library/jquery-ui/js/jquery-ui.min_effects.js"></script>
+
+<script src="{{ base_url }}static/library/vue.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{ base_url }}static/dist/js/bootstrap.min.js?v=1"></script>
+<!-- Include the Sidr JS -->
+<script src="{{ base_url }}static/library/sidr-package-1.2.1/jquery.sidr.custom.js?v=1"></script>
+<!-- Include the Taphold JS -->
+<script src="{{ base_url }}static/library/taphold/taphold.js?v=1"></script>
+<!-- Include the TouchSwipe JS -->
+<script src="{{ base_url }}static/library/touchwipe/jquery.touchwipe.min.js?v=1"></script>
+<!-- Include the Swipe JS -->
+{#<script src="{{ base_url }}static/library/swipejs/swipe.js?v=1"></script>#}
+
+<!-- Include the TOUCHSwipe JS -->
+<script src="{{ base_url }}static/library/TouchSwipe/jquery.touchSwipe.js?v=1"></script>
+
+<!-- Include the Idangerous Swiper JS -->
+<script src="{{ base_url }}static/library/idangerous-swiper/idangerous.swiper.js?v=1"></script>
+<!-- Include the Mustache JS -->
+<script src="{{ base_url }}static/library/mustache/mustache.js?v=1"></script>
+<!-- Include the Modernizr JS -->
+<script src="{{ base_url }}static/library/modernizr/modernizr.custom.11858.js?v=1"></script>
+<!-- Include the Bootstrap Datepicker -->
+<script src="{{ base_url }}static/library/bootstrap-datepicker/bootstrap-datetimepicker.js?v=1"></script>
+<!-- Include the Bootstrap Slider -->
+<script src="{{ base_url }}static/library/bootstrap-slider/bootstrap-slider.js?v=1"></script>
+
+<!-- Include the Bootstrap Switcher  -->
+<script src="{{ base_url }}static/library/bootstrap-switcher/bootstrap-switch.min.js?v=1"></script>
+
+<script src="{{ base_url }}static/library/lz-string/libs/lz-string.js?v=1"></script>
+
+{#<!-- Include the Typeahead Plugin -->
+<script src="{{ base_url }}static/library/typeahead/typeahead.bundle.js?v=1"></script>#}
+
+<!-- Include the Mousetrap Plugin -->
+<script src="{{ base_url }}static/library/mousetrap/mousetrap.js?v=1"></script>
+<!-- Include the FingerPrint Plugin -->
+<script src="{{ base_url }}static/library/fingerprint/fingerprint.min.js?v=1"></script>
+<!-- Include the FastClick Plugin -->
+<script src="{{ base_url }}static/library/fastclick/fastclick.js?v=1"></script>
+<!-- Include the toastr plugin -->
+<script src="{{ base_url }}static/library/toastr/toastr.js?v=1"></script>
+<!-- Include the hammer plugin - double tap - -->
+<script src="{{ base_url }}static/library/hammer/hammer.min.js?v=1"></script>
+<!-- Include Custom JS -->
+<script src="{{ base_url }}static/custom/js/NovComet.js?v=1"></script>
+
+<script src="{{ base_url }}static/custom/js/key_shortcuts.js?v=1"></script>
+
+
+<script src="{{ base_url }}static/library/filterTable/filterTable.js?v=1"></script>
+
+<script src="{{ base_url }}static/library/select2-3.5.1/select2.js?v=1"></script>
+
+
+{#js_version_reload  - this  variable is set WMDS_Controller class with this line ->set('js_version_reload',rand(0,1000));
+ for production version it needs be set in 0 #}
+<script src="{{ base_url }}static/custom/js/scripts.js?v={{js_version_reload}}"></script>
+<script src="{{ base_url }}static/custom/js/sync.js?v={{js_version_reload}}"></script>
+<script src="{{ base_url }}static/custom/js/options_formatter.js?v={{js_version_reload}}"></script>
+<script src="{{ base_url }}static/custom/js/cart.js?v={{js_version_reload}}"></script>
+<script src="{{ base_url }}static/custom/js/caching.js?v={{js_version_reload}}"></script>
+<script src="{{ base_url }}static/custom/js/device.js?v={{js_version_reload}}"></script>
+<script src="{{ base_url }}static/custom/js/scripts4.js?v={{js_version_reload}}"></script>
+<script src="{{ base_url }}static/custom/js/scripts2.js?v={{js_version_reload}}"></script>
+<script src="{{ base_url }}static/custom/js/scripts3.js?v={{js_version_reload}}"></script>
+<script src="{{ base_url }}static/custom/js/data.js?v={{js_version_reload}}"></script>
+<script src="{{ base_url }}static/custom/js/security.js?v={{js_version_reload}}"></script>
+
+
+<script src="{{ base_url }}static/custom/js/md5.js?v=1"></script>
+
+
+</body>
+</html>

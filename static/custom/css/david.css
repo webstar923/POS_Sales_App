@@ -1,0 +1,387 @@
+body {
+    padding-bottom: 150px;
+}
+html, body {margin: 0; padding: 0;}
+hr {
+    margin: 10px 0;
+}
+.well {
+    margin-bottom: 0;
+}
+.spacer {
+   padding-top: 20px;
+}
+.side-menu {
+    display: none;
+}
+.padder, .sidr-padder {
+    padding: 15px;
+}
+.relative {
+    position: relative;
+}
+.cart-items-list {
+    height: 160px;
+    overflow: scroll;
+    overflow-x: visible;
+}
+.radio-button.selected {
+    color: #fff;
+    background-color: #428bca;
+    border-color: #357ebd;
+}
+
+#loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff url("../../dist/img/preloader.GIF") no-repeat center center;
+    z-index: 1000;
+}
+#loader.nobg {
+    background-image: none;
+}
+/* Text Colors
+----------------------------------------------------------------------------------------------------------------------*/
+.color-green {
+    color: #3e8f3e;
+}
+.color-red {
+    color: #cc0000;
+}
+/* Swipe.js
+----------------------------------------------------------------------------------------------------------------------*/
+.swipe {
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+}
+.swipe-wrap {
+    overflow: hidden;
+    position: relative;
+}
+.swipe-wrap > div {
+    float:left;
+    width:100%;
+    position: relative;
+}
+/* Products Listing
+----------------------------------------------------------------------------------------------------------------------*/
+.products-items-list {
+    max-height: 415px;
+    overflow: scroll;
+    overflow-x: visible;
+}
+.product-item {
+    width: 30%;
+    height: 70px;
+    border:1px solid #ccc;
+    float: left;
+    margin: 0px 5px 5px 0;
+    word-break: normal;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+}
+.product-item.bgcolor-1{
+    /*color: #FFFFFF;*/
+    /*font-style: italic;*/
+    /*text-decoration: underline;*/
+    background-image: url(var_prod.png);
+}
+.product-item>div {
+    padding:2px;
+    vertical-align: middle;
+}
+.product-item>div div:first-letter {
+    font-size:150%;
+}
+.product-item>div>div.title-row-1:first-letter {
+    font-size:300%;
+}
+.product-item>div>div.title-row-1 {
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .product-item {
+        width: 24.3%;
+        height: 150px;
+        font-size: 14px;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .product-item {
+        width: 16%;
+        height: 150px;
+        font-size: 21px;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .product-item {
+        width: 12%;
+        height: 120px;
+        font-size: 19px;
+    }
+    
+    .sidr {
+    width: 380px;
+    }
+}
+
+/* The hack */
+#product-content {
+    overflow:hidden;
+}
+/* The rest */
+#product-container {
+    width:100%;
+    float:left;
+}
+#product-floated {
+    float:right;
+    width:70px;
+    padding: 10px;
+}
+#product-content {
+    overflow:hidden;
+}
+
+.product-item .caption {
+    position: absolute;
+    bottom: 0;
+}
+body * {
+    -webkit-touch-callout: auto;
+    -webkit-user-select: auto;
+    -khtml-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+}
+/* Footer
+----------------------------------------------------------------------------------------------------------------------*/
+.action-checkout {
+    position: relative;
+}
+.action-checkout .items {
+    position: absolute;
+    top:-6px;
+    right: -6px;
+    padding: 0 5px;
+    background: #fff;
+    color: #47a447;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+/* AlphaScroll
+----------------------------------------------------------------------------------------------------------------------*/
+.alpha-scroll {
+    text-align: center;
+    padding: 10px 0;
+    background: #ccc;
+    margin-bottom: 15px;
+    border-radius: 3px;
+}
+.alpha-scroll span{
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 1.1;
+    color: #fff;
+    height: 3.7%;
+}
+.alpha-scroll a:hover, .alpha-scroll a:active {
+    background: #333333;
+    text-decoration: none;
+}
+/* special product listing overwrite
+----------------------------------------------------------------------------------------------------------------------*/
+.special-listing {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+}
+/* full screen loader
+----------------------------------------------------------------------------------------------------------------------*/
+#fullScreenLoader {
+    width: 100%;
+    height: 0;
+    background: #fff;
+    z-index: 2000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity:0.4;
+    filter:alpha(opacity=40);
+}
+
+#fullScreenLoader > p {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: -90px;
+    margin-left: -64px;
+}
+
+#fullScreenLoader > p > img {
+    margin-bottom: 10px;
+    display: block;
+}
+
+#fulloverflow {
+    position: absolute;
+    width: 100%;
+    background: #000;
+    height: 100%;
+    z-index: 2000;
+    opacity:0.4;
+    filter:alpha(opacity=40);
+}
+/* park style
+----------------------------------------------------------------------------------------------------------------------*/
+#park-order-table-list-html button {
+    width: 25%;
+    margin-bottom: 5px;
+}
+
+/* cart add button
+----------------------------------------------------------------------------------------------------------------------*/
+#trigger-cartadd {
+    position: fixed;
+    bottom: 25px;
+    right: 10px;
+    width: 180px;
+    display: none;
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+#trigger-cartadd {
+    position: fixed;
+    bottom: 0px;
+    right: 10px;
+    font-size: 30px;
+    padding: 10px;
+    width: 340px;
+    display: none;
+    }
+}
+/* left modal close button
+----------------------------------------------------------------------------------------------------------------------*/
+.btn-close-sidr-left {
+    position: fixed;
+    width: 180px;
+    bottom: 25px;
+    left: 10px;
+    display: none;
+}
+
+/* table no wrap on text
+----------------------------------------------------------------------------------------------------------------------*/
+.no-text-wrap {
+    white-space: nowrap;
+}
+
+/* inline quantity widget
+----------------------------------------------------------------------------------------------------------------------*/
+
+.inline-form-quantity {
+    text-align: center;
+}
+
+.inline-form-quantity button {
+    width: 35%;
+    display: inline-block;
+}
+
+.inline-form-quantity input {
+    width: 20% !important;
+    display: inline-block !important;
+}
+
+/* custom radio
+----------------------------------------------------------------------------------------------------------------------*/
+[class^='po-custom-radio'] {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-top: 5px;
+}
+
+
+[class^='po-custom-radio'] input {
+    display: none;
+}
+
+.modal-checkout-takeway-list-item input {
+    display: none;
+}
+/* full width container
+----------------------------------------------------------------------------------------------------------------------*/
+.container-full {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.panel-body {
+    padding: 5px;
+}
+
+.panel-heading {
+    padding: 4px;
+}
+
+.well {
+    padding: 5px;
+}
+
+.mbot10 {
+    margin-bottom: 10px;
+}
+
+.mtop10 {
+    margin-top: 10px;
+}
+
+.min-spacer {
+    padding-top: 10px;
+}
+
+.Flexible-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.Flexible-container iframe,
+.Flexible-container object,
+.Flexible-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tt-suggestion {
+    text-align: left !important;
+}
+
+button#checkout-submit-button {
+font-weight: bold;
+font-size: 30px;
+}

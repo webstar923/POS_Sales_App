@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html manifest="/login.appcache" type="text/cache-manifest">
+    <head>
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <!-- Bootstrap -->
+        <link href="{{ base_url }}static/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+        <!-- Include Bootstrap Slider CSS -->
+        <link rel="stylesheet" href="{{ base_url }}static/library/bootstrap-slider/slider.css">
+
+        <!-- Include Bootstrap Switcher CSS -->
+        <link rel="stylesheet" href="{{ base_url }}static/library/bootstrap-switcher/bootstrap-switch.min.css?v=1">
+
+        <!-- Include Custom CSS rules -->
+        <link rel="stylesheet" href="{{ base_url }}static/custom/css/style.css">
+
+        <!-- Include Custom CSS rules -->
+        <link rel="stylesheet" href="{{ base_url }}static/library/toastr/toastr.min.css">
+
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <div id="delayOverflow"><img src="{{ base_url }}static/dist/img/big-preload.gif" alt="Loading..."/></div>
+        <div id="fullScreenLoader" class="hide"><p><img src="{{ base_url }}static/dist/img/big-preload.gif" alt="Loading..."/><span id="status_text">Fetching online data </span></p></div>
+        <div id="fullScreenNoAccess" class="hide"><p><img src="{{ base_url }}static/dist/img/big-login-wanr.png" alt="Warning..."/>Internet access required</p></div>
+
+        <div id="page-home">
+            <div class="container min-spacer">
+                <div class="row">
+                    <div class="modal-body">
+                        <h4 class="modal-title" id="">Passcode</h4>
+                        <hr>
+
+                        <div class="form-group">
+                            <input type="password" class="form-control input-lg" id="input-password" placeholder="PIN">
+                        </div>
+
+                        <div class="row login-reformat-buttons">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                <div class="row mtop10">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="7">7</button>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="8">8</button>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="9">9</button>
+                                    </div>
+                                </div>
+                                <div class="row mtop10">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="4">4</button>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="5">5</button>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="6">6</button>
+                                    </div>
+                                </div>
+                                <div class="row mtop10">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="1">1</button>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="2">2</button>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="3">3</button>
+                                    </div>
+                                </div>
+                                <div class="row mtop10">
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                        <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="0">0</button>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <button class="btn btn-lg btn-block btn-danger user-login-helper" data-val="del"><</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row mtop10">
+                            <button type="submit" class="btn btn-lg btn-success btn-block notSelectable" id="login-user-trigger">Login</button>
+                        </div>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="warn-user-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="text-center" style="color: red;">
+                            <h2>Warning</h2>
+                            <strong>This is your last try before being locked out!</strong>
+                        </div>
+                    </div>
+
+                    <div id="park-order-table-list-html" class="text-center"></div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="twofa-user-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row text-center">
+                            <h3>Verify Device</h3>
+                        </div>
+                        <div class="row">
+                            <div class="mtop10"></div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="SMS code" id="twofa-sms-code"/>
+                            </div>
+                            <div class="mtop10"></div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Device name (eg: kitchen computer)" id="twofa-device-name"/>
+                            </div>
+                            <div class="mtop10"></div>
+                            <button class="btn btn-lg btn-block btn-primary" id="security-code">Enter</button>
+                        </div>
+                    </div>
+
+                    <div id="park-order-table-list-html" class="text-center"></div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+
+        <!-- Online/offline check -->
+        <script src="{{ base_url }}static/dist/js/onCheck.js"></script>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="{{ base_url }}static/library/jquery/jquery.js?v=1"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="{{ base_url }}static/dist/js/bootstrap.min.js"></script>
+        <!-- Include the Mustache JS -->
+        <script src="{{ base_url }}static/library/mustache/mustache.js"></script>
+        <!-- Include the Modernizr JS -->
+        <script src="{{ base_url }}static/library/modernizr/modernizr.custom.11858.js?v=1"></script>
+        <!-- Include the FingerPrint Plugin -->
+        <script src="{{ base_url }}static/library/fingerprint/fingerprint.min.js?v=1"></script>
+        <!-- Include the toastr plugin -->
+        <script src="{{ base_url }}static/library/toastr/toastr.min.js?v=1"></script>
+        <!-- Include the FastClick Plugin -->
+        <script src="{{ base_url }}static/library/fastclick/fastclick.js?v=1"></script>
+        <!-- Include Custom JS -->
+        <script src="{{ base_url }}static/custom/js/security.js"></script>
+        <script src="{{ base_url }}static/custom/js/md5.js?v=1"></script>
+        <script src="{{ base_url }}static/custom/js/sync.js?v={{js_version_reload}}"></script>
+        
+        <script src="{{ base_url }}static/library/filterTable/filterTable.js?v=1"></script>  
+
+    </body>
+</html>

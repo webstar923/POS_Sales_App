@@ -1,0 +1,33 @@
+{% raw %}
+<script id="template-list-products" type="text/template">
+
+        <div data-category="{{ cat }}" data-populated="{{ populated }}" data-category-name="{{ cat-name }}">
+
+            <div class="normal-listing">
+            {{#special}}
+                <div class="product-item bgcolor-{{ variation }}" data-id="{{ id }}" data-price="{{ price }}" data-price2="{{ price2 }}"  data-price3="{{ price3 }}"
+				data-name="{{ rawName }}" data-var='{{ variation }}' data-has_coupon="{{ has_coupon }}" style="background-color: {{ color }};">
+                    <div>{{ &name }}</div>
+                    <!--   
+                    {{#skey}}
+                        <div class="product-shortcode">alt+{{ skey }}</div>
+                    {{/skey}}
+                    -->
+                </div>
+            {{/special}}
+            {{#products}}
+            <div class="product-item bgcolor-{{ variation }}" data-id="{{ id }}" data-price="{{ price }}" data-price2="{{ price2 }}"  data-price3="{{ price3 }}"
+			data-name="{{ rawName }}" data-var='{{ variation }}' data-has_coupon="{{ has_coupon }}" style="background-color: {{ color }};">
+                <div>{{ &name }}</div>
+                <!--
+                {{#skey}}
+                    <div class="product-shortcode">alt+{{ skey }}</div>
+                {{/skey}}
+                -->
+            </div>
+            {{/products}}
+            </div>
+        </div>
+
+</script>
+{% endraw %}

@@ -1,0 +1,80 @@
+{% raw %}
+
+<script id="template-product-cart" type="text/template">
+{{! Render Product without Half}}
+  {{^hasHalf}}
+    <div>{{kind}}: <b>{{name}}</b>
+      {{#parts.hasIncluded}}
+        {{#isDeal}}<printer-space />{{/isDeal}}
+        NO:
+      {{/parts.hasIncluded}}
+      <b>
+        {{#parts.included}}
+          {{name}}{{^isLast}},{{/isLast}}
+        {{/parts.included}}
+      </b>
+      {{#parts.hasExtra}}
+        {{#isDeal}}<printer-space />{{/isDeal}}
+        EXTRA:
+      {{/parts.hasExtra}}
+      <b>
+        {{#parts.extra}}
+          {{name}}{{^isLast}},{{/isLast}}
+        {{/parts.extra}}
+      </b>
+  {{/hasHalf}}
+</div>
+
+{{! Render Product with Half}}
+{{#hasHalf}}
+{{kind}}: <b>{{product_var}}</b>
+<div {{#isHalfInDeal}}class="indent"{{/isHalfInDeal}}>
+  {{#isHalfInDeal}}<printer-space />{{/isHalfInDeal}}1st HALF: <b>{{name}}</b>
+  {{#parts.hasIncluded}}
+    NO:
+  {{/parts.hasIncluded}}
+  {{#isHalfInDeal}}<printer-space />{{/isHalfInDeal}}<b>
+  <printer-indentation>
+  {{#parts.included}}
+    {{name}}{{^isLast}},{{/isLast}}
+  {{/parts.included}}
+  </b>
+  {{#parts.hasExtra}}
+    EXTRA:
+  {{/parts.hasExtra}}
+  {{#isHalfInDeal}}<printer-space />{{/isHalfInDeal}}<b>
+  <printer-indentation>
+  {{#parts.extra}}
+    {{name}}{{^isLast}},{{/isLast}}
+  {{/parts.extra}}
+  </b>
+</div>
+
+
+{{#half}}
+<div {{#isHalfInDeal}}class="indent"{{/isHalfInDeal}}>
+  {{#isHalfInDeal}}<printer-space />{{/isHalfInDeal}}2nd HALF: <b>{{name}}</b>
+  {{#halfparts.hasIncluded}}
+    NO:
+  {{/halfparts.hasIncluded}}
+  {{#isHalfInDeal}}<printer-space />{{/isHalfInDeal}}<b>
+  <printer-indentation>
+  {{#halfparts.included}}
+    {{name}}{{^isLast}},{{/isLast}}
+  {{/halfparts.included}}
+  </b>
+  {{#halfparts.hasExtra}}
+    EXTRA:
+  {{/halfparts.hasExtra}}
+  {{#isHalfInDeal}}<printer-space />{{/isHalfInDeal}}<b>
+  <printer-indentation>
+  {{#halfparts.extra}}
+    {{name}}{{^isLast}},{{/isLast}}
+  {{/halfparts.extra}}
+  </b>
+</div>
+{{/half}}
+{{/hasHalf}}
+</script>
+
+{% endraw %}

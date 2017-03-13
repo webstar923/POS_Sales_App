@@ -1,0 +1,91 @@
+<!-- Modal -->
+<div class="modal fade" id="change-user-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="">User</h4>
+                <hr>
+
+                <ul class="list-group" id="change-user-modal-container">
+                </ul>
+
+                <div class="form-group">
+                    <input type="password" class="form-control input-lg" id="input-password" placeholder="Passcode">
+                </div>
+
+                <div class="row login-reformat-buttons">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                        <div class="row mtop10">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="7">7</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="8">8</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="9">9</button>
+                            </div>
+                        </div>
+                        <div class="row mtop10">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="4">4</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="5">5</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="6">6</button>
+                            </div>
+                        </div>
+                        <div class="row mtop10">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="1">1</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="2">2</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="3">3</button>
+                            </div>
+                        </div>
+                        <div class="row mtop10">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                <button class="btn btn-lg btn-block btn-default user-login-helper" data-val="0">0</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-danger user-login-helper" data-val="del"><</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="mtop10"></div>
+
+                <button type="submit" class="btn btn-lg btn-success btn-block" id="switch-user-trigger">Switch User</button>
+                </p>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+{% raw %}
+<script id="change-user-modal-template" type="text/template">
+    <li class="list-group-item">{{ firstname }} {{ lastname }} {{#isadmin}}Type: Admin{{/isadmin}}{{^isadmin}}Type: User{{/isadmin}}</li>
+    <li class="list-group-item">
+        <div class="btn-group btn-group-justified">
+            <label class="btn btn-primary btn-lg" onclick="new syncHandler().lazySync();new syncHandler().pushLocalData();" data-dismiss="modal">Sync Now</label>
+            {{#isadmin}}
+                <label class="btn btn-primary btn-lg" onclick="window.location.href = '/admin'">Admin Area</label>
+            {{/isadmin}}
+            <label class="btn btn-danger btn-lg" id="logout-user-trigger">Logout</label>
+        </div>
+		<div id="logout-offline-text" class="hide">
+			You need to be online to log out
+		</div>
+    </li>
+</script>
+{% endraw %}

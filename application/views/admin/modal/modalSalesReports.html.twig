@@ -1,0 +1,36 @@
+<!-- Modal -->
+<div class="modal fade" id="modal-sales-reports" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <form action="#/generate-report" method="get" id="generate-report-form">
+                    <fieldset>
+                        <legend>Sales Report</legend>
+                        <label for="for-select">For:</label>
+                        <select id="for-select" class="form-control" name="type">
+                            <option value="today">Today</option>
+                            <option value="last_week">Last Week</option>
+                            <option value="last_month">Last Month</option>
+                            <option value="last_3_months">Last 3 Months</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label class="hide report-datepicker">Date Range:</label>
+                        <div class="input-group hide report-datepicker">
+
+                            <input type="text" class="input-sm form-control input-daterange" name="start" />
+                            <span class="input-group-addon">to</span>
+                            <input type="text" class="input-sm form-control input-daterange" name="end" />
+                        </div>
+                        <input type="hidden" name="search" />
+                    </fieldset>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-lg btn-primary" data-dismiss="modal" onclick="$('#generate-report-form').submit();">Generate Report</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -1,0 +1,35 @@
+{% raw %}
+  <!--script id="template-product-options-halfs" type="text/template">
+    <hr>
+    <h4>2nd Half <span class="halfPizzaFeeWrap">(<span class="halfPizzaFee">{{halfFee}}$ fee</span>)</span></h4>
+
+    <select name="half"  data-variation_id="{{variation_id}}" data-type="half" class="half-selector-option-all">
+      <option value="">No half pizza</option>
+      {{#items}}
+        <option value="{{ variation_id }}" data-price="{{ variation_price }}" data-name="{{#isDeal}}{{ variation_name }}{{/isDeal}}{{^isDeal}}{{ product_name }}{{/isDeal}}" class="variation-{{ half_variation_group }}" data-price="{{ product_price }}">
+          {{#isDeal}}{{ variation_name }}{{/isDeal}}{{^isDeal}}{{ product_name }}{{/isDeal}} {{#hasPrice}}(${{ textPrice }}){{/hasPrice}}
+        </option>
+      {{/items}}
+    </select>
+    <div class="halfPizzaMsg">Variations(size, sause, ...) are for the whole pizza. If that is not the case use the comment box below </div>
+    <div class="ingredients-selector"></div>
+  </script-->
+
+  <template id="panel-product-options-halfs">
+    <div>
+      <hr>
+      <h4>2nd Half <span class="halfPizzaFeeWrap">(<span class="halfPizzaFee">{{d.halfFee}}$ fee</span>)</span></h4>
+
+      <select name="half" class="half-selector-option-all" v-model="d.checkedIdx">
+        <option value="">No half pizza</option>        
+        <option v-bind:value="j" v-for="(item, j) in d.items">        
+          <span v-if="item.isDeal">{{ item.variation_name }}</span>     
+          <span v-if="item.isDeal == false">{{ item.product_name }}</span>     
+          <span v-if="item.hasPrice == true">(${{ item.textPrice }})</span>        
+        </option>      
+      </select>
+      <div class="halfPizzaMsg">Variations(size, sause, ...) are for the whole pizza. If that is not the case use the comment box below </div>
+      <div class="ingredients-selector"></div>
+    </div>
+  </template>
+{% endraw %}

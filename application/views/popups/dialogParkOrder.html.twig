@@ -1,0 +1,122 @@
+<!-- Modal -->
+<div class="modal fade" id="modal-park-order" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+
+                <h4>1. Select printer:</h4> 
+                <!-- Nav tabs for printer -->
+                {#<ul class="nav nav-tabs" id="takeaway-nav-pay">
+                    <li><a href="#switching_to_parking_printers" data-toggle="tab" id="id_kitchen_docket_parked">Kitchen Docket</a></li>
+                    <li class="active"><a href="#swithing_to_customers_to_parking_printers" data-toggle="tab" id="id_customers_docket_parked">Customer's Docket</a></li>                            
+                </ul>#}  
+                {#                <hr/>#}
+                <div class="text-center">
+                    <input type="checkbox" name="checkbox_hide_park_printers" checked>  
+                </div>
+{#                <br/>#}
+                <div id="textNotifierAboutPrintersState" class="text-center"> On </div>    
+                <br/>
+
+                <div class="text-center">
+                    <div id="modal-park-order-printers"></div>
+                    <div id="modal-park-order-printers_second"></div>
+                </div>
+
+
+                <h4>2. Park order:</h4>
+                <hr>
+                <div class="text-center">
+                    <button type="button" class="btn btn-lg btn-default trigger-park-table" data-value="T">Takeway</button>
+                    <button type="button" class="btn btn-lg btn-default trigger-park-table" data-value="D">Delivery</button>
+                </div>
+                <div style="height:20px;"></div>
+                <div id="park-order-table-list-html" class="text-center"></div>
+                <div style="height:20px;"></div>
+                <label> 
+                    <input type="checkbox" id="printOnlyNewItems" checked="checked"> Print Never Printed (Newly Added) Items Only 
+                </label>  
+
+
+                <p>
+                    <label for="modal-checkout-takeaway-time">Now/Later</label>
+                <div id="modal-checkout-takeaway-time-park" class="clearfix">
+                    <div class="btn-group btn-group-justified pull-left two-thirds" id="modal-checkout-takeaway-time-types-park">
+                        <a role="button" class="btn btn-primary btn-lg button-pay-type-time active" data-type="asap">ASAP</a>
+                        <a role="button" class="btn btn-primary btn-lg button-pay-type-time" data-type="later">For Later</a>
+                    </div>
+                    <div class="pull-right one-thirds">
+                        <span  class="takeaway-type-item takeaway-type-asap">Customer wants the order ASAP</span>
+                        <div id="id-takeaway-type-later" class="takeaway-type-item takeaway-type-later hide">
+                            <input id="takeaway-type-later-datepicker-park" placeholder="Order for:" class="form-control input-lg" type="text" readonly/>
+                        </div>
+                    </div>
+                </div>
+                </p> 
+
+                <div class="mtop10"></div>
+                <input type="text" class="form-control input-lg" placeholder="Note" id="parking_order_note">
+                <div class="mtop10"></div>
+
+
+                <p>
+                    <button class="btn btn-success btn-block btn-lg" id="checkout-submit-button-park"> Park <span class="checout-total-container"></span></button>
+                </p>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+{% raw %}
+    <script id="park-order-table-list" type="text/template">
+        {{#tables}}
+        <button type="button" class="btn btn-lg btn-default trigger-park-table" data-value="{{ number }}">Table {{ number }}</button>
+        {{/tables}}
+    </script>
+{% endraw %}

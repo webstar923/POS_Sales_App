@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Admin Area</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <!-- Bootstrap -->
+    <link href="{{ base_url }}static/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ base_url }}static/admin/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Fonts -->
+    <link href="{{ base_url }}static/admin/css/font-awesome.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+
+    <!-- Custom -->
+    <link href="{{ base_url }}static/admin/css/style.css" rel="stylesheet" type="text/css">
+    <link href="{{ base_url }}static/admin/css/pages/signin.css" rel="stylesheet" type="text/css">
+
+    <!-- Include Custom CSS rules -->
+    <link rel="stylesheet" href="{{ base_url }}static/library/toastr/toastr.min.css">
+
+</head>
+
+<body>
+
+<div id="fullScreenLoader" class="hide"><p><img src="{{ base_url }}static/dist/img/big-preload.gif" alt="Loading..."/><span id="status_text">Fetching online data </span></p></div>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#/dashboard">Admin Area</a>
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /navbar-inner -->
+</div>
+<!-- /navbar -->
+<div class="subnavbar hide" id="global-navbar">
+    <div class="subnavbar-inner">
+        <div class="container">
+            <ul class="mainnav">
+                <li><a href="../"><i class="icon-hand-left"></i><span>Main App</span> </a></li>
+                <li><a href="#/dashboard" class="admin-menu-item" id="admin-menu-item-dashboard"><i class="icon-dashboard"></i><span>Dashboard</span> </a></li>
+                <li><a href="#/generate-report" id="admin-menu-item-reports" data-toggle="modal" data-target="#modal-sales-reports" class="admin-menu-item"><i class="icon-list-alt"></i><span>Sales Reports</span> </a></li>
+                <li class="dropdown" id="admin-menu-item-tops-dropdown"><a href="javascript:void(0);" class="dropdown-toggle admin-menu-item" id="admin-menu-item-tops" data-toggle="dropdown"> <i class="icon-facetime-video"></i><span>Tops</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/tops?type=staff">Staff</a></li>
+                        <li><a href="#/tops?type=client">Client</a></li>
+                        <li><a href="#/tops?type=products">Products</a></li>
+                    </ul>
+                </li>
+                <li><a href="#/staff-reports" class="admin-menu-item" id="admin-menu-item-staff-reports"><i class="icon-bar-chart"></i><span>Staff Reports</span> </a></li>
+                <li><a href="#/balance-reports" class="admin-menu-item" id="admin-menu-item-balance-reports"><i class="icon-bar-chart"></i><span>Balance</span> </a></li>
+            </ul>
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /subnavbar-inner -->
+</div>
+<!-- /subnavbar -->
+
+<div id="admin-content"></div>
+
+{% include 'admin/adminLoginPage.html.twig' %}
+{% include 'admin/adminDashboadPage.html.twig' %}
+{% include 'admin/adminSalesReportsPage.html.twig' %}
+{% include 'admin/adminTopsPage.html.twig' %}
+{% include 'admin/adminStaffReportPage.html.twig' %}
+{% include 'admin/adminBalanceReports.html.twig' %}
+
+{% include 'admin/modal/modalSalesReports.html.twig' %}
+{% include 'admin/modal/modalSalesReportsDeleteConfirm.html.twig' %}
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="//code.jquery.com/jquery.js?v=1"></script>
+<script src="{{ base_url }}static/custom/js/webapp.js?v=1" type="text/javascript"></script>
+<!-- Bootstrap -->
+<script src="{{ base_url }}static/admin/js/bootstrap.js?v=1"></script>
+<!-- Mustache -->
+<script src="{{ base_url }}static/library/mustache/mustache.js?v=1"></script>
+<!-- Sammy -->
+<script src="{{ base_url }}static/admin/js/sammy-latest.min.js?v=1"></script>
+<!-- Include the Modernizr JS -->
+<script src="{{ base_url }}static/library/modernizr/modernizr.custom.11858.js?v=1"></script>
+<!-- Include the bootstrap datepicker -->
+<script src="{{ base_url }}static/admin/js/bootstrap-datepicker.js?v=1"></script>
+<!-- Include the toastr plugin -->
+<script src="{{ base_url }}static/library/toastr/toastr.min.js?v=1"></script>
+<!-- Include the FastClick Plugin -->
+<script src="{{ base_url }}static/library/fastclick/fastclick.js?v=1"></script>
+<!-- Include the FingerPrint Plugin -->
+<script src="{{ base_url }}static/library/fingerprint/fingerprint.min.js?v=1"></script>
+<!-- Include Custom JS -->
+
+<script src="{{ base_url }}static/custom/js/security.js?v={{js_version_reload}}"></script>
+<script src="{{ base_url }}static/custom/js/md5.js?v=1"></script>
+<script src="{{ base_url }}static/custom/js/sync.js?v=1"></script>
+<script src="{{ base_url }}static/admin/js/excanvas.min.js"></script>
+<script src="{{ base_url }}static/admin/js/chart.min.js?v=1" type="text/javascript"></script>
+<script src="{{ base_url }}static/custom/js/cart.js?v=1" type="text/javascript"></script>
+<!-- Admin -->
+<script src="{{ base_url }}static/admin/js/admin.js?v=1"></script>
+
+<script src="{{ base_url }}static/library/filterTable/filterTable.js?v=1"></script>  
+
+</body>
+
+</html>

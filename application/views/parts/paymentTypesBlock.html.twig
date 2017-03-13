@@ -1,0 +1,35 @@
+{% raw %}
+
+<script id="payment-types-table" type="text/template">
+    <table class="table table-bordered table-striped" style="margin-top:20px;">
+        <tbody>
+            <tr><th style="width: 50%;">Subtotal:</th><td style="width: 50%;">${{ total }}</td></tr>
+            <tr><th>Fee{{ fee_tax }}:</th><td>${{ fee }}</td></tr>
+            <tr><th>Total:</th><td>${{ totalfee }}</td></tr>
+        </tbody>
+    </table>
+</script>
+
+<script id="payment-types-table-cash" type="text/template">
+    <p style="margin-top: 10px;">
+        <input id="input-total" class="form-control input-lg" type="number" placeholder="Amount Given">
+    </p>
+
+    <div class="btn-group btn-group-justified" style="margin: 10px 0;">
+        <a role="button" class="btn btn-default btn-lg cash-money-inc" data-val="100">$100</a>
+        <a role="button" class="btn btn-default btn-lg cash-money-inc" data-val="50">$50</a>
+        <a role="button" class="btn btn-default btn-lg cash-money-inc" data-val="20">$20</a>
+        <a role="button" class="btn btn-default btn-lg cash-money-inc" data-val="10">$10</a>
+        <a role="button" class="btn btn-default btn-lg cash-money-inc" data-val="5">$5</a>
+    </div>
+
+    <div class="btn-group btn-group-justified">
+        <a role="button" class="btn btn-default btn-lg cash-money-inc" data-val="2">$2</a>
+        <a role="button" class="btn btn-default btn-lg cash-money-inc" data-val="1">$1</a>
+        <a role="button" class="btn btn-default btn-lg cash-money-inc" data-val="0.5">50c</a>
+        <a role="button" class="btn btn-default btn-lg cash-money-inc" data-val="0.25">25c</a>
+        <a role="button" class="btn btn-default btn-lg cash-money-inc" data-val="0.1">10c</a>
+        <a role="button" class="btn btn-default btn-lg cash-money-inc" data-val="0.05">5c</a>
+    </div>
+</script>
+{% endraw %}

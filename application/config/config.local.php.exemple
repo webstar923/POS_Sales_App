@@ -1,0 +1,14 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+/* Local Configuration Options */
+$config['log_threshold'] = 4;
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:&_\-';
+
+$config['reload_js'] = false;
+
+$config["db"]['database'] = 'pizzaboy_dev6';
+$config["db"]['hostname'] = 'localhost';
+$config["db"]['username'] = 'root';
+$config["db"]['password'] = '';
+
+/* EOF */

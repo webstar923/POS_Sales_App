@@ -1,0 +1,41 @@
+CACHE MANIFEST
+
+#version 4
+
+CACHE:
+
+#images
+/static/dist/img/big-preload.gif
+
+#internal HTML documents
+
+
+#style sheets
+/static/custom/css/style.css
+/static/dist/css/bootstrap.min.css
+/static/library/bootstrap-slider/slider.css
+/static/library/bootstrap-switcher/bootstrap-switch.min.css
+/static/library/toastr/toastr.min.css
+
+#style sheet images
+/static/custom/css/var_prod.png
+/static/dist/img/preloader.GIF
+/static/dist/img/big-login-wanr.png
+
+#javascript files
+/static/library/jquery/jquery.js?v=1
+/static/dist/js/bootstrap.min.js
+/static/library/mustache/mustache.js
+/static/library/modernizr/modernizr.custom.11858.js?v=1
+/static/library/fingerprint/fingerprint.min.js?v=1
+/static/library/toastr/toastr.min.js?v=1
+/static/custom/js/security.js?v=1
+/static/custom/js/md5.js?v=1
+/static/custom/js/sync.js?v=1
+
+
+NETWORK:
+*
+
+FALLBACK:
+/static/dist/js/onCheck.js /static/dist/js/offCheck.js

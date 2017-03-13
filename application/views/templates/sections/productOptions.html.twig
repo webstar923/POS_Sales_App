@@ -1,0 +1,76 @@
+<template id="panel-product-options">
+    <form onsubmit="return false;" id="product-extra-options">
+
+        <button type="button" class="close" aria-hidden="true" v-on:click="close()" >&times;</button>
+{% raw %}
+        <div>
+            <div>
+                <a data-toggle="collapse" data-parent="#accordion" href="#order-description">
+                    <h4 style="text-decoration: underline">{{ d.product_name }}</h4>
+                </a>
+                <div id="order-description" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p v-html="d.description"></p>
+                    </div>
+                </div>
+            </div>
+        </div>  
+{% endraw %}
+
+        <div class="inline-form-quantity">
+            <button type="button" class="btn btn-primary" v-on:click="quantityProductOptions('-1')">
+                <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            <input type="number" class="form-group" readonly="readonly" v-bind:value="d.quantity" >            
+            <button type="button" class="btn btn-primary" v-on:click="quantityProductOptions('+1')">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </div>
+
+        <div class="form-group">
+            <textarea cols="40" rows="3" placeholder="Please write your special instructions here" v-model="d.product_note"></textarea>
+        </div>
+
+{% raw %}
+        
+        <div class="variation-block"  v-for="(item, index) in d.items">
+            <div class="variation_selector">
+                <div class="options_name_single">
+                    {{ item.name }}
+                </div>
+                <div class="half-selector-option-all-buttons options_container" >                   
+                    <label class="btn btn-default po-custom-radio-all-buttons" v-for="(option, j) in item.options" v-bind:class="{'active' : item.checkedIdx == j }">
+                        <input type="radio" v-on:click="calculateTotalPrice();" v-bind:name="item.name" v-bind:value="j" v-model="item.checkedIdx"/>
+                          {{ option.variation_name }}
+                    </label>                  
+                </div>
+            </div>           
+
+            <div class="ingredients-selector" v-if="item.options[item.checkedIdx].ingredient">
+              <panel-ingredients :d="item.options[item.checkedIdx].ingredient" v-if="item.options[item.checkedIdx].ingredient.items.length > 0"></panel-ingredients>
+            </div>
+
+            <div class="half-selector" v-if="item.options[item.checkedIdx].half">
+              <panel-halfs :d="item.options[item.checkedIdx].half"></panel-halfs>
+            </div>
+        </div>
+
+        <hr>
+        <br><br><br><br><br><br><br><br><br>
+
+        <p>
+            <button class="btn btn-primary btn-block" id="trigger-cartadd" style="display: inline-block;" v-on:click="clickedTrigger_CartAdd()"><span class="btn-text">{{d.btn_text}}</span> ($ <span class="btn-price">{{ d.total_price }}</span> )</button>
+        </p>
+{% endraw %}
+    </form>
+</template>
+
+<script id="template-product-options" type="text/template">
+    <div class="padder productOptions_first">             
+        <div id="sidr-product-options-h">
+            <div></div>
+            <!--panel-product-options :d="product_info" ></panel-product-options-->
+            <component :is="currentView" :d="product_info"></component>
+        </div>
+    </div>
+</script>

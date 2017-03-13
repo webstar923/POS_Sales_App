@@ -1,0 +1,96 @@
+<!-- Modal -->
+<div class="modal fade" id="modal-closed-orders" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <table class="table table-bordered table-striped" id="modal-closed-orders-cart"></table>
+                <div id="modal-closed-orders-info"></div>
+
+                
+                <ul class="nav nav-tabs" id="closed_orders-nav-pay">
+                    <li class="active"><a href="#modal-closed-orders-printers" data-toggle="tab" id="id_kitchen_docket_closed_orders">Kitchen Docket</a></li>
+                    <li><a href="#modal-closed-orders-printers_second" data-toggle="tab" id="id_customers_docket_closed_orders">Customer's Docket</a></li>
+                </ul>
+
+                <div class="mtop10"></div>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="modal-closed-orders-printers">
+                    </div>  
+
+                    <div class="tab-pane " id="modal-closed-orders-printers_second">
+                    </div>
+                </div>
+            
+                <div class="checkbox disabled">
+                    <label><input id="print_managers_copy" type="checkbox" value="">Print Manager's Copy?</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg btn-success" data-dismiss="modal" onclick="reprintPaidOrder();">Re-Print</button>
+                <button id="buttonCanDeleteOrders" type="button" class="btn btn-lg btn-danger" data-dismiss="modal" onclick="voidPaidOrder()">Void</button>
+                <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+{% raw %}
+    <script id="closed-orders-popup-cart-template" type="text/template">
+        <tbody>
+        {{#content}}
+        <tr>
+        <td class="order-list-name">{{ name }}<br /><small>{{{ extra_cart }}}</small></td>
+        <td class="order-list-name no-text-wrap">x {{ qty }}</td>
+        <td class="order-list-price no-text-wrap">$ {{ price }}</td>
+        </tr>
+        {{/content}}
+        </tbody>
+        <tfoot>
+        <tr>
+        <th>Total:</th>
+        <th colspan="2" style="text-align: right;">${{ total }}</th>
+        </tr>
+        <tfoot>
+    </script>
+
+    <script id="modal-closed-orders-info-delivery-template" type="text/template">
+        <ul class="list-group">
+        <li class="list-group-item">Order Number: <strong>{{ display_id }}</strong></li>
+        <li class="list-group-item">Address: <strong>{{ address }}</strong></li>
+        <li class="list-group-item">Note: <strong>{{ note }}</strong></li>
+        <li class="list-group-item">Pay Type: <strong>{{ name }}</strong></li>
+        <li class="list-group-item">Date: <strong>{{ date }}</strong></li>
+        <li class="list-group-item">Order For: <strong>{{ order_time }}</strong></li>
+
+        </ul>
+        <input type="hidden" id="modal-closed-orders-info-id" value="{{ id }}" />
+    </script>
+
+    <script id="modal-closed-orders-info-takeaway-template" type="text/template">
+        <ul class="list-group">
+        <li class="list-group-item">Order Number: <strong>{{ display_id }}</strong></li>
+        <li class="list-group-item">Note: <strong>{{ note }}</strong></li>
+        <li class="list-group-item">Pay Type: <strong>{{ name }}</strong></li>
+        <li class="list-group-item">Date: <strong>{{ date }}</strong></li>
+        <li class="list-group-item">Order For: <strong>{{ order_time }}</strong></li>
+
+        </ul>
+        <input type="hidden" id="modal-closed-orders-info-id" value="{{ id }}" />
+    </script>
+
+    <script id="modal-closed-orders-info-table-template" type="text/template">
+        <ul class="list-group">
+        <li class="list-group-item">Order Number: <strong>{{ display_id }}</strong></li>
+        <li class="list-group-item">Note: <strong>{{ note }}</strong></li>
+        <li class="list-group-item">Pay Type: <strong>{{ name }}</strong></li>
+        <li class="list-group-item">Paid: <strong>${{ pay_value }}</strong></li>
+        <li class="list-group-item">Date: <strong>{{ date }}</strong></li>
+        <li class="list-group-item">Order For: <strong>{{ order_time }}</strong></li>
+
+
+
+        </ul>
+        <input type="hidden" id="modal-closed-orders-info-id" value="{{ id }}" />
+    </script>
+{% endraw %}

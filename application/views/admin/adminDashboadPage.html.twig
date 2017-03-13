@@ -1,0 +1,46 @@
+{% raw %}
+<script id="admin-dashboard-page" type="text/template">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Dashboard
+            </div>
+            <div class="panel-body">
+                <div>
+                    <canvas id="pie-chart" class="chart-holder">
+                    </canvas>
+                    <!-- /pie-chart -->
+                </div>
+                <div id="admin-dashboard-page-piechart-legend"></div>
+                <table class="table table-bordered">
+                    {{#top_prod}}
+                    <tr><td>{{ id }}</td><td>{{ name }}</td></tr>
+                    {{/top_prod}}
+                </table>
+
+                <div class="widget">
+                    <div class="widget-header">
+                        <i class="icon-bar-chart"></i>
+                        <h3>Today VS 7days ago</h3>
+                    </div>
+                    <!-- /widget-header -->
+                    <div class="table-responsive">
+                        <div class="widget-content" id="area-chart-container">
+                            <canvas id="area-chart" class="chart-holder" height="250" width="950">
+                            </canvas>
+                        </div> <!-- /widget-content -->
+                    </div>
+                </div><!-- /widget -->
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="admin-dashboard-page-piechart-template" type="text/template">
+    <table class="table">
+        {{#.}}
+            <tr><td style="color: {{ color }}">{{ name }}:</td><td>{{ value }}</td></tr>
+        {{/.}}
+    </table>
+</script>
+{% endraw %}

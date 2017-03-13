@@ -1,0 +1,62 @@
+<!-- Modal -->
+<div class="modal fade" id="modal-checkout-delivery" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="">Delivery Checkout</h4>
+                <hr>
+
+                <p>
+                    <input id="modal-checkout-delivery-name" class="form-control input-lg" type="text" placeholder="Name">
+                </p>
+                <p>
+                    <input id="modal-checkout-delivery-company" class="form-control input-lg" type="text" placeholder="Company">
+                </p>
+                <p>
+                    <input id="modal-checkout-delivery-address" class="form-control input-lg" type="text" placeholder="Address">
+                </p>
+                <p>
+                    
+                    <select class="form-control input-lg"  id="modal-checkout-delivery-suburb">
+                        <option>Suburb</option>
+                        <option>Suburb 1</option>
+                        <option>Suburb 2</option>
+                        <option>Suburb 3</option>
+                    </select>
+                </p>
+                <p>
+                    <input id="modal-checkout-delivery-phone" data-id-user="0" class="form-control input-lg" type="text" placeholder="Phone">
+                </p>
+                <p>
+                    <textarea placeholder="Please input you note here..." class="form-control input-lg" rows="1" name="checkout-note" id="modal-checkout-delivery-note"></textarea>
+                </p>
+
+                <hr>
+
+                <div class="btn-group btn-group-justified" id="modal-checkout-delivery-payment-types"></div>
+                <div id="delivery-taxes-container"></div>
+                <p>
+
+                <div class="row">
+                    <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+                        Print on:
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+                        <select class="form-control">
+                            <option>Printer 1</option>
+                            <option>Printer 2</option>
+                        </select>
+                    </div>
+                </div>
+                </p>
+
+                <hr>
+
+                <p>
+                    <button class="btn btn-success btn-block btn-lg" onclick="myCart.checkoutDelivery();">Finish</button>
+                </p>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

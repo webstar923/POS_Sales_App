@@ -1,0 +1,5 @@
+/nbproject
+/application/libraries/printer_template
+/application/logs/
+!/application/libraries/printer_template/*.php
+config.local.php

@@ -1,0 +1,184 @@
+/*
+dynamically loaded for Desktop Ubuntu Chrome
+*/
+
+/* THIS SEEMS TO ACTUALLY CAUSE THE FLICKERING RATHER THAN HELP
+div#sidr-options {  /* pushes CSS animations into hardware acceleration
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-perspective: 100;
+}
+
+#sidr-orders { /* pushes CSS animations into hardware acceleration
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-perspective: 100;
+}
+
+*/
+
+div#virtualKeyboardChromeExtensionMainNumbers {
+  border-bottom: 20px black solid;
+}
+
+.select2-container, .select2-drop, .select2-search, .select2-search input{
+    font-size: 18px;
+      margin-top: 2px !important;
+}
+
+input#search-control {
+  font-weight: bold;
+}
+
+
+
+ul.ui-autocomplete{
+  width: 398px;
+  border: 4px solid #5897fb;
+  border-radius: 4px 4px 4px 4px !important;
+  z-index: 300;
+  -webkit-box-shadow: 0px -20px 44px 15px rgba(0,0,0,0.75);
+ 
+}
+
+.ui-autocomplete .ui-menu-item a {
+  font-size: 30px;
+  line-height: 1.05 !important;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 398px;
+  text-overflow: ellipsis;
+ }
+
+
+#modal-checkout-delivery-p ul.ui-autocomplete{
+  width: 778px !important;
+  -webkit-box-shadow: 0px 20px 44px 15px rgba(0,0,0,0.75);
+  left:-80px !important;
+ }
+
+
+#modal-checkout-delivery-p .ui-autocomplete .ui-menu-item a {
+  font-size: 28px;
+  line-height: 1.1 !important;
+  width: 768px;
+  text-align: center;
+}
+
+#modal-checkout-delivery-ph ul.ui-autocomplete{
+  width: 270px !important;
+  -webkit-box-shadow: 0px 20px 44px 15px rgba(0,0,0,0.75);
+ }
+
+#modal-checkout-delivery-ph .ui-autocomplete .ui-menu-item a {
+  font-size: 28px;
+  line-height: 1.1 !important;
+  width: 270px;
+  text-align: left;
+}
+
+.select2_absolute_position, .select2-drop-multi#select2-drop{
+  display: block;
+  width: 362px !important;
+  position: absolute;
+  top: 4px !important;
+  left: auto !important;
+  right: 19px !important;
+  border-radius: 4px 4px 0 0;
+  border: 4px solid #5897fb !important;
+  -webkit-box-shadow: 0px 0px 44px 15px rgba(0,0,0,0.75) !important;
+}
+.select2-drop-multi#select2-drop {
+   margin-left: -171px;
+}
+
+.select2-results {
+    min-height: 424px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.select2-drop-multi>.select2-results {
+    min-height: 384px;
+    
+}
+
+.select2-container .select2-choice{
+    width: 342px;
+}
+
+
+
+
+*::selection {
+    background:transparent;
+}
+
+
+.alter-dropdown .select2-choice {
+	width: 100%;
+  	padding: 3px 3px 3px 10px;
+  	height: 33px;
+}
+
+.alter-dropdown {
+  	padding: 0px;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+  font-size: 25px;
+
+}
+
+
+/* TODO  - ... when longer (ie Sun Dried Tomato*/
+.select2-container-multi ul.select2-choices {
+  font-size: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  top: 4px;
+
+}
+/*
+TEMPORARY HACK
+*/
+
+a#trigger-categories {
+  width: 100%;
+}
+
+input#search-control {
+  margin-left: 2px;
+
+}
+
+
+
+button#hide_keyboard_control {
+  margin-left: -3px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+a.category-changer {
+  line-height: 45px;
+  font-weight: bold;
+  font-size: 15px;
+
+}
+
+a.btn.btn-primary.btn-lg.price-type-action{
+  font-size:15px;
+}
+
+ul#sidr-categories-content {
+  margin-bottom: 0px;
+}
+
+.sidr-inner {
+  padding-bottom: 0px !important;
+}
+
+hr.front_end_setting {
+  margin: 5px;
+}

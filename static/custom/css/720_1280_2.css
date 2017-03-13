@@ -1,0 +1,388 @@
+/*
+
+dynamically loaded for Lenovo AXXX  (6inch 720x1280 with 2 pixel ration) only
+
+*/
+.select2-container, .select2-drop, .select2-search, .select2-search input{
+    font-size: 31px;
+      margin-top: 2px !important;
+}
+
+input#search-control {
+  font-weight: bold;
+}
+
+.select2-results .select2-result-label{
+	font-size: 40px;
+	font-weight: bold;
+}
+
+button.btn.btn-default.select2-close-button {
+  
+  height: 65px;
+}
+
+
+ul.ui-autocomplete{
+  width: 398px;
+  border: 4px solid #5897fb;
+  border-radius: 4px 4px 4px 4px !important;
+  z-index: 300;
+  -webkit-box-shadow: 0px -20px 44px 15px rgba(0,0,0,0.75);
+ 
+}
+
+.ui-autocomplete .ui-menu-item a {
+  font-size: 30px;
+  line-height: 1.05 !important;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 398px;
+  text-overflow: ellipsis;
+ }
+
+
+#modal-checkout-delivery-p ul.ui-autocomplete{
+  width: 778px !important;
+  -webkit-box-shadow: 0px 20px 44px 15px rgba(0,0,0,0.75);
+  left:-80px !important;
+ }
+
+
+#modal-checkout-delivery-p .ui-autocomplete .ui-menu-item a {
+  font-size: 28px;
+  line-height: 1.1 !important;
+  width: 768px;
+  text-align: center;
+}
+
+#modal-checkout-delivery-ph ul.ui-autocomplete{
+  width: 270px !important;
+  -webkit-box-shadow: 0px 20px 44px 15px rgba(0,0,0,0.75);
+ }
+
+#modal-checkout-delivery-ph .ui-autocomplete .ui-menu-item a {
+  font-size: 28px;
+  line-height: 1.1 !important;
+  width: 270px;
+  text-align: left;
+}
+
+.select2_absolute_position, .select2-drop-multi#select2-drop{
+  display: block;
+  width: 465px !important;
+  position: absolute;
+  top: 4px !important;
+  left: auto !important;
+  right: 19px !important;
+  border-radius: 4px 4px 0 0;
+  border: 4px solid #5897fb !important;
+  -webkit-box-shadow: 0px 0px 44px 15px rgba(0,0,0,0.75) !important;
+}
+.select2-drop-multi#select2-drop {
+   margin-left: -171px;
+}
+
+.select2-results {
+    min-height: 424px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.select2-drop-multi>.select2-results {
+    min-height: 680px;
+    
+}
+
+.select2-container .select2-choice{
+    width: 342px;
+}
+
+
+
+
+*::selection {
+    background:transparent;
+}
+
+
+.alter-dropdown .select2-choice {
+	width: 100%;
+  	padding: 3px 3px 3px 10px;
+  	height: 33px;
+}
+
+.alter-dropdown {
+  	padding: 0px;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+  font-size: 40px;
+  margin-bottom: 25px;
+
+}
+li.select2-search-choice{
+	font-size: 40px;
+  
+}
+
+.select2-container-multi ul.select2-choices li.select2-search-choice{
+	height: 50px;
+}
+
+button.btn.btn-default.glyphicon.glyphicon-plus-sign.add_extra_ingredients {
+  height: 64px;
+  font-size: 25px;
+}
+
+/* TODO  - ... when longer (ie Sun Dried Tomato*/
+.select2-container-multi ul.select2-choices {
+  font-size: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  top: 4px;
+
+}
+
+
+div#search_button {
+  width: 60%;
+   padding-left: 0;
+  padding-right: 0;
+}
+
+button#hide_search_control {
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+
+div#categories_button {
+  width: 40%;
+}
+
+div#sidr-options {
+'overflow': 'auto';
+}
+button#hide_keyboard_control {
+  left: -2px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+
+div#swiper-height-relative-collapsed {
+  height: 1100px;
+}
+
+.search-control{
+	/*search-control
+	*/
+}
+
+.ui-menu .ui-menu-item a {
+  font-size: 40px;
+  line-height: 1.4 !important;
+}
+
+div#swiper-height-relative-notcollapsed {
+  height: 450px;
+}
+
+.btn-lg {
+	font-size: 30px;
+}
+
+.sidr {
+	font-size: 25px;
+	width: 360px;
+}
+.sidr ul li a, .sidr ul li span {
+	padding: 21px 15px;
+}
+
+div#sidr-options {
+	width: 500px;
+	height: 110%;
+}
+
+button#trigger-cartadd {
+	width: 500px;
+}
+
+button.btn.po-custom-radio {
+	padding: 20px;
+	font-size: 40px;
+}
+
+.sidr label {
+	font-size: 43px;
+}
+
+div#options_name {
+	font-size: 40px;
+}
+
+.select2-container .select2-choice {
+	width: 470px;
+	height: 50px;
+	padding: 10px;
+}
+
+.sidr input[type=checkbox] {
+	-webkit-transform: scale(2.5);
+	margin-top: 25px;
+	margin-right: 15px;
+}
+
+.cart-items-list {
+	height: 460px;
+}
+
+.btn {
+	font-size: 28px;
+}
+
+a#trigger-categories {
+	width: 111%;
+	position: relative;
+	left: 10px;
+}
+
+
+
+button.btn.btn-default {
+	padding-left: 40px;
+	padding-right: 50px;
+}
+
+input#search-control {
+	height: 54px;
+	font-size: 28px;
+}
+
+div#sidr-orders {
+	width: 500px;
+}
+
+button.btn.btn-danger.btn-block.btn-close-sidr-left {
+	width: 526px;
+}
+
+
+.sidr input[type="text"], .sidr input[type="password"], .sidr input[type="date"], .sidr input[type="datetime"], .sidr input[type="email"], .sidr input[type="number"], .sidr input[type="search"], .sidr input[type="tel"], .sidr input[type="time"], .sidr input[type="url"], .sidr textarea, .sidr select {
+	font-size: 26px;
+}
+
+
+div#sidr-categories {
+	z-index: 4000;
+}
+
+label.btn.btn-primary.btn-lg.modal-checkout-takeway-list-item {
+	font-size: 38px;
+}
+
+
+button#checkout-delivery-button {
+	font-size: 55px;
+}
+
+.input-lg {
+	font-size: 29px;
+	padding: 47px 21px;
+}
+
+a.checkout-tabs {
+	font-size: 30px;
+}
+
+.close {
+  font-size: 29px;
+  top: -10px;
+  position: relative;
+}
+
+.btn-lg {
+	padding: 6px 6px;
+}
+
+label.btn.btn-primary.btn-lg.modal-checkout-takeway-list-item {
+	padding: 20px 10px 20px 8px;
+}
+
+a.btn.btn-primary.btn-lg.button-pay-type-dinein {
+	padding: 20px 10px 20px 8px;
+}
+
+button.btn.btn-primary.btn-lg.btn-printer{
+	padding: 20px 10px 20px 8px;
+}
+
+a.btn.btn-primary.btn-lg.button-pay-type-time{
+	padding: 20px 10px 20px 8px;
+}
+
+a.btn.btn-primary.btn-lg.button-pay-type-takeout {
+	padding: 20px 10px 20px 8px;
+}
+
+button#checkout-submit-button {
+	font-size: 55px;
+}
+
+button.btn.btn-lg.btn-default.trigger-park-table {
+	padding: 40px;
+}
+
+button#checkout-submit-button-park {
+	font-size: 50px;
+}
+
+span.glyphicon.glyphicon-search {
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+button.btn.btn-success.btn-block.navbar-btn.action-checkout.notSelectable.btn-lg {
+	padding-bottom: 24px;
+	padding-top: 20px;
+}
+button#trigger-settings {
+	padding: 20px;
+}
+
+.alpha-scroll {
+	height: 515px;
+}
+
+button#arrow-left {
+  padding: 5px 10px 5px 10px;
+  margin-bottom: 7px;
+}
+
+button#arrow-right {
+  padding: 5px 10px 5px 10px;
+}
+
+table#list-cart {
+	font-size: 25px;
+}
+
+
+input#modal-checkout-delivery-address {
+  width: 84%;
+}
+
+button#clean_address_field {
+  float: left;
+  padding: 27px 46px 27px 46px;
+  margin-left: -8px;
+  margin-bottom: 10px;
+}
+
+button#open_till {
+  width: 500px;
+}

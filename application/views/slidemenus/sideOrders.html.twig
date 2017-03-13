@@ -1,0 +1,85 @@
+
+<!-- SidrOrders  -->
+<div id="sidr-orders" class="side-menu">
+    <!-- Your content -->
+    <div id="sidr-orders-container"></div>
+
+    <button class="btn btn-danger btn-block btn-close-sidr-left" data-target="orders">Close</button>
+</div> <!-- /.SidrOrders -->
+
+
+
+{% raw %}
+    <script id="sidr-orders-template" type="text/template">
+
+    <div id="sidr-orders-table-list">
+
+        <button type="button" id = "open_till" class = "btn btn-danger">Open Cash Drawer</button>
+        <hr id = "open_till_hr">
+
+        {{#has_unsaved}}
+        <h4>On Hold Orders</h4>
+        <div class="table-responsive">
+            <table class="table">
+                {{#unsaved}}
+                <tr>
+                    <td style="background-color:{{ color }}">
+                        {{#selected}}
+                            {{{ text }}}
+                        {{/selected}}
+                        {{^selected}}
+                            <a  class="notSelectable sidr-orders-trigger-order" data-printed='{{ printed }}' data-status = '{{ status }}' data-order-code='{{ orderCode }}' data-unique_id='{{ unique_id }}' data-value='{{ value }}' data-id="{{ id }}" data-note="{{ note }}" data-client="{{ client }}">{{{ text }}}</a>
+                        {{/selected}}
+                    </td>
+                </tr>
+                {{/unsaved}}
+            </table>
+        </div>
+        {{/has_unsaved}}
+
+        {{#has_park}}
+                {{#park}}
+                    <h4>{{ name }}</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            {{#items}}
+                                <tr class="2">
+                                    <td style="background-color:{{ color }}">
+                                        {{#selected}}
+                                {{ displayId }} -
+                                            {{ table }}<br />{{{ text }}}
+                                        {{/selected}}
+                                        {{^selected}}
+                                             <a class="notSelectable sidr-orders-trigger-order" data-printed='{{ printed }}' data-status = '{{ status }}' data-order-code='{{ orderCode }}' data-unique_id='{{ unique_id }}' data-value='{{ value }}' data-id="{{ id }}" data-table="{{ table }}" data-note="{{ note }}" data-client="{{ client }}" data-order-type="{{ order_type }}" data-display_id="{{ displayId }}"> <b>{{ displayId }}   -  {{ table }}  ({{ tot_price }}) - {{ date }} </b><br /> {{{ text }}}</a>
+                                        {{/selected}}
+                                    </td>
+                                </tr>
+                            {{/items}}
+                        </table>
+                    </div>
+                {{/park}}
+        {{/has_park}}
+
+
+
+
+        {{#has_checkout}}
+      <h4 id="closed_orders">Closed Orders</h4>
+
+        <div class="table-responsive">
+            <table class="table" id="tableWithClosedOrdersToSort">
+                {{#checkout}}
+                <tr>
+                    <td class="notSelectable closed-orders-popup{{#voided}} voided-order{{/voided}}" data-status = '{{ status }}'
+            data-order-code='{{ orderCode }}' data-unique_id='{{ unique_id }}' data-id="{{ id }}" style="background-color:{{ color }}">
+                    <b> {{ displayId }} -  {{ table }}; {{ ot_name }} - {{ order_status }}: {{ tot_price }} at {{ date }} </b> <br />{{{ text }}}
+                    </td>
+                </tr>
+                {{/checkout}}
+            </table>
+        </div>
+        {{/has_checkout}}
+    </div>
+
+    </script>
+{% endraw %}

@@ -1,0 +1,29 @@
+{% raw %}
+
+<script id="template-list-cart" type="text/template">
+    {{#.}}
+    <tr class="item-{{ cart_id }} tr-item-printed-{{ printed }} cart-item-line " data-cart_id="{{ cart_id }}">
+        <td class="order-list-remove" style="width:30px;">
+            <button type="button" class="btn btn-xs btn-danger delete-cart-item" data-id="{{ cart_id }}">
+            <span class="glyphicon glyphicon-remove-sign"></span>
+            </button>
+        </td>
+        {{#is_discount}}
+            <td class="order-list-name"> <a  data-custom-items-printers="{{ custom_items_printers }}"  ><b>{{ name }}</b></a></td>
+        {{/is_discount}}
+        {{^is_discount}}
+            <td class="order-list-name"><a class="list-cart-change-product" data-custom-items-printers="{{ custom_items_printers }} "
+    data-printed="{{ printed }}"  data-srcname="{{ srcName }}" data-cartId="{{ cart_id }}" data-id="{{ id }}" data-qty="{{ qty }}"
+    data-extra='{{ extra }}' data-note="{{ note }}"><b>{{ qty }} x {{ name }}</b><br /><small>{{{ extra_cart }}}</small></a></td>
+        {{/is_discount}}
+        <td class="order-list-price" style="width:70px;text-align: right;white-space: nowrap;">${{ tot_price }}</td>
+    </tr>
+    {{/.}}
+</script>
+
+<script id="template-list-cart-empty" type="text/template">
+    <tr id="empty-cart">
+        <td colspan="4" class="text-center">Tab is empty</td>
+    </tr>
+</script>
+{% endraw %}

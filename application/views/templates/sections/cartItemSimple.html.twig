@@ -1,0 +1,23 @@
+{% raw %}
+
+<script id="template-product-cart-simple" type="text/template">
+{{! Render Product without Half}}
+{{#products}}
+<div>{{product}} : <b>{{name}}</b>
+  {{#parts.hasIncluded}}
+    <b>No : </b>
+  {{/parts.hasIncluded}}
+  {{#parts.included}}
+    {{name}}{{^isLast}},{{/isLast}}<printer-indentation>
+  {{/parts.included}}
+  {{#parts.hasExtra}}
+    <b>Extra : </b>
+  {{/parts.hasExtra}}
+  {{#parts.extra}}
+    {{name}}{{^isLast}},{{/isLast}}<printer-indentation>
+  {{/parts.extra}}
+</div>
+{{/products}}
+</script>
+
+{% endraw %}

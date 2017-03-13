@@ -1,0 +1,126 @@
+<!-- Modal -->
+<div class="modal fade" id="modal-discount" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="discount-codes-list"></div>
+                <div class="clearfix mtop10"></div>
+                <div id="or_manual" align="center">Pick Discount Code above or enter manual discount/charge bellow</div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                        <div class="btn-group btn-group-justified button-wrap">
+                            <label class="btn btn-lg btn-success disc-product-inc" data-val="-$">-$</label>
+                            <label class="btn btn-lg btn-success disc-product-inc" data-val="+$">+$</label>
+                            <label class="btn btn-lg btn-success disc-product-inc" data-val="-%">-%</label>
+                            <label class="btn btn-lg btn-success disc-product-inc" data-val="+%">+%</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mtop10"></div>  
+                <div class="row">
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                     
+                        <!--
+                        <input class="form-control" type="text" placeholder="____" name="miscValue" id="discValue" value="0">
+                        -->
+                        <input class="form-control" type="text" placeholder="____" name="miscValue" id="discValue" value="0" disabled="">
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        <button class="btn btn-block btn-danger disc-product-inc" data-val="del"><</button>
+                    </div>
+                </div>
+                <div class="mtop10"></div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea placeholder="Description if any" class="form-control" rows="1" name="miscDescription" id="miscDescription"></textarea>
+                    </div>
+                </div>
+                <div class="mtop10"></div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">                    
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary disc-product-inc" data-val="7">7</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary disc-product-inc" data-val="8">8</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary disc-product-inc" data-val="9">9</button>
+                            </div>
+                        </div>
+                        <div class="row mtop10">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary disc-product-inc" data-val="4">4</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary disc-product-inc" data-val="5">5</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary disc-product-inc" data-val="6">6</button>
+                            </div>
+                        </div>
+                        <div class="row mtop10">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary disc-product-inc" data-val="1">1</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary disc-product-inc" data-val="2">2</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary disc-product-inc" data-val="3">3</button>
+                            </div>
+                        </div>
+                        <div class="row mtop10">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                <button class="btn btn-lg btn-block btn-primary disc-product-inc" data-val="0">0</button>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <button class="btn btn-lg btn-block btn-primary disc-product-inc" data-val=".">.</button>
+                            </div>
+                        </div>
+
+                        <br/>
+
+                        <div class="row">
+
+                            <div class="text-center col-md-12 "  >
+                                
+                                <span id="checkbox_hide_printers_custom_items_controller" class="hidden">
+                                    <input type="checkbox" name="checkbox_hide_printers_custom_items" checked>  
+                                    <div id="textNotifierAboutPrintersStateCustomOrders" class="text-center"> On </div>    
+                                </span>
+                                <div  id="modal-custom-orders-printers">
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="modal-footer discount-modal col-md-12" >
+                                <button type="button" class="btn btn-lg btn-default" data-dismiss="modal" id="disc-product-close">Close</button>
+                                <button type="button" class="btn btn-lg btn-success" data-dismiss="modal" id="disc-product-add">ADD</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+{% raw %}
+    <script id="discount-codes-template" type="text/template">
+        {{#codes}}
+        <div class="mtop10"></div>
+        <div class="btn-group btn-group-justified button-wrap">
+        {{#list}}
+        <label class="btn btn-success btn-lg discount-code-button" data-id="{{ id }}" data-description="{{ description }}" data-percent="{{ percentage }}">
+        {{ description }} ({{ percentage }}%)
+        </label>
+        {{/list}}
+        </div>
+        {{/codes}}
+    </script>
+{% endraw %}

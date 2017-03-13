@@ -1,0 +1,53 @@
+{% raw %}
+    <script id="template-half-ingredients" type="text/template">
+
+    <div class="panel-group" id="ingredients-holder">
+        <div>
+
+            <div  id="colapse-ingredients-holder">
+
+                <div class="panel-group" id="ingredients-block">
+
+                    <ul class="nav nav-tab make_inline" role="tablist">
+                        <li class="active"> <a href="#included2" role="tab" data-toggle="tab"> Included </a> </li>
+                        <li> <a href="#extra2" role="tab" data-toggle="tab" class="extra-tab-btn"> Extra </a> </li>
+                    </ul>
+
+                    <div class="tab-content options_content_holder_pizza_second_half" >
+                    {{#.}}
+
+                        {{#is_default}}
+                            <div class="tab-pane fade in active included" id="included2">
+                                {{#items}}
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="product_extra_options_second_default css-checkbox"
+                                        value="{{ ingredient_id }}" checked="checked" data-label="{{ ingredient_name }}"> {{ ingredient_name }}
+                                        </label>
+                                    </div>
+                                {{/items}}
+                            </div>
+                        {{/is_default}}
+                        {{^is_default}}
+                            <div class="tab-pane fade extra" id="extra2">
+
+                                  {{#items}}
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="ingredients_second[{{ name }}]" value="{{ ingredient_id }}"
+                                    data-label="{{ ingredient_name }}" data-price="{{ price_tot }}"> {{ ingredient_name }} +$<span class="half-ing-price" data-price="{{ price }}">{{ price }}</span>
+                                        </label>
+                                    </div>
+                                  {{/items}}
+                            </div>
+                        {{/is_default}}
+
+
+                    {{/.}}
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+{% endraw %}

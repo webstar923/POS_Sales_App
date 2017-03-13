@@ -1,0 +1,114 @@
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="modal-universal-product" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>
+                    <textarea placeholder="Add Description" class="form-control" rows="1" name="miscName" id="miscName"></textarea>
+                </p>
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        <input type="hidden" name="typeOfMisc" id="typeOfMisc" value="plus">
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-8">
+                        <input class="form-control" type="number" placeholder="Price" name="miscValue" id="miscValue" style="text-align: right">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+
+                        <div class="row mtop10">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary misc-product-inc" data-val="7">7</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary misc-product-inc" data-val="8">8</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary misc-product-inc" data-val="9">9</button>
+                            </div>
+                        </div>
+                        <div class="row mtop10">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary misc-product-inc" data-val="4">4</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary misc-product-inc" data-val="5">5</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary misc-product-inc" data-val="6">6</button>
+                            </div>
+                        </div>
+                        <div class="row mtop10">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary misc-product-inc" data-val="1">1</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary misc-product-inc" data-val="2">2</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <button class="btn btn-lg btn-block btn-primary misc-product-inc" data-val="3">3</button>
+                            </div>
+                        </div>
+                        <div class="row mtop10">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                <button class="btn btn-lg btn-block btn-primary misc-product-inc" data-val="0">0</button>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <button class="btn btn-lg btn-block btn-primary misc-product-inc" data-val=".">.</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                        <div class="row mtop10">
+                            <button class="btn btn-lg btn-block btn-danger misc-product-inc" style="line-height: 50px;" data-val="del"><</button>
+                        </div>
+                        <div class="row mtop10">
+                            <button class="btn btn-lg btn-block btn-success misc-product-inc" style="line-height: 50px;" data-val="sign">-</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-lg btn-primary" id="misc-add" data-loading-text="Adding...">Add</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+{#
+<div class="modal fade" id="modal-universal-product" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>
+                    <textarea placeholder="Add Description" class="form-control" rows="1" name="miscName" id="miscName"></textarea>
+                </p>
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default radio-button miscButtonType selected" data-value="plus">+</button>
+                            <button type="button" class="btn btn-default radio-button miscButtonType" data-value="minus">-</button>
+                        </div>
+                        <input type="hidden" name="typeOfMisc" id="typeOfMisc" value="plus">
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-8">
+                        <input class="form-control" type="number" placeholder="Price" name="miscValue" id="miscValue">
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-lg btn-primary" id="misc-add" data-loading-text="Adding...">Add</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->#}

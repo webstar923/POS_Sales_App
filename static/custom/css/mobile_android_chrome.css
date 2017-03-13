@@ -1,0 +1,25 @@
+
+/*
+dynamically loaded for Mobile Android Chrome
+*/
+
+
+button.btn.btn-danger.btn-block.btn-close-sidr-left { /* prevening the button from jumping when the panel's content is bellow fold */
+-webkit-backface-visibility: hidden;
+}
+
+button#trigger-cartadd { /* prevening the button from jumping when the panel's content is bellow fold */
+-webkit-backface-visibility: hidden;
+}
+
+
+.select2-results {
+    min-height: 424px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.select2-drop-multi>.select2-results {
+    min-height: 384px;
+    
+}

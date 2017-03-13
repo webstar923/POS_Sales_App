@@ -1,0 +1,17 @@
+
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} ^/system.*
+
+RewriteRule ^(.*)$ index.php?/$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php?/$1 [L]
+
+<ifModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/xml text/css text/plain
+  AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript application/json
+</ifModule>
+
+
+php_value memory_limit 128M

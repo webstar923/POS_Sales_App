@@ -1,0 +1,181 @@
+<!-- Modal -->
+<div class="modal fade" id="modal-checkout-type" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center modal-body-minimize" id="modal-checkout-type-takeaway-modal">
+                <div id="modal-checkout-type-takeaway-loader">
+                    <img src="static/custom/img/product_option_loading.gif" /> 
+                    <div class="clearfix"></div>
+                    <div class="mtop10"></div>
+                    <div class="mtop10"></div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <button type="button" class="close" id="modal-checkout-type-close" aria-hidden="true">&times;</button>
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#modal-checkout-type-takeaway" data-toggle="tab" data-type="takeaway">Dine-in/Takeway</a></li>
+                    <li><a href="#modal-checkout-type-delivery" data-toggle="tab" data-type="delivery">Delivery</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="modal-checkout-type-takeaway">
+
+                        <div class="mtop10"></div>
+                        <div class="input-group" id="modal-checkout-takeway-coupon">
+                            <input type="text" class="form-control input-lg" id="coupon-validate-input">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-lg" type="button" id="coupon-validate">Validate</button>
+                            </span>
+                        </div><!-- /input-group -->
+
+                        <div class="input-group hide" id="modal-checkout-takeway-coupon-value">
+                            <input type="text" class="form-control input-lg" disabled>
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger btn-lg" type="button" id="coupon-validate">Remove</button>
+                            </span>
+                        </div><!-- /input-group -->
+                        <div class="mtop10"></div>
+
+
+                        <p>
+                        <div class="btn-group btn-group-justified" id="modal-checkout-takeway-payment-types"></div>
+                        <div id="takeaway-taxes-container"></div>
+                        </p>
+
+
+                        <hr>
+
+                        {#<p>
+                            <label for="checkout-takeaway-note">Note</label>
+                            <textarea placeholder="Please input you note here..." class="form-control input-lg" rows="1" name="checkout-note" id="checkout-takeaway-note"></textarea>
+                        </p>#}
+                        <p>
+                        <label for="modal-checkout-takeway-container">Select Table/Takeway</label>
+
+                        <div id="modal-checkout-takeway-container"></div>
+                        </p>
+
+                        <p>
+                            <label class="modal-checkout-delivery-printers" for="modal-checkout-takeway-printers">Select printer</label>
+
+                            <div id="modal-checkout-takeway-printers" class="slave_part_modal-checkout-takeway-printers"></div> 
+                            <div id="modal-checkout-takeway-printers_second" class="leader_part_modal-checkout-takeway-printers"></div> 
+                        </p>
+
+                        <p class="order-warning bg-danger"></p>
+
+                        <p>
+                            <button class="btn btn-success btn-block btn-lg" onclick="myCart.checkout();">Finish<span class="checout-total-container"></span></button>
+                        </p>
+                    </div>
+                    <div class="tab-pane" id="modal-checkout-type-delivery">
+                        <div style="height:20px"></div>
+                        <p>
+                            <input id="modal-checkout-delivery-name" class="form-control input-lg" type="text" placeholder="Name">
+                        </p>
+                        <p>
+                            <input id="modal-checkout-delivery-company" class="form-control input-lg" type="text" placeholder="Company">
+                        </p>
+                        <p>
+                            <input id="modal-checkout-delivery-address" class="form-control input-lg" type="text" placeholder="Address">
+                        </p>
+                        <p>
+                            <select class="form-control input-lg"   id="modal-checkout-delivery-suburb">
+                            </select>
+                            {#<input id="modal-checkout-delivery-suburb" class="form-control input-lg" type="text" placeholder="Suburb" readonly>#}
+                        </p>
+                        <p>
+                            <input id="modal-checkout-delivery-phone" class="form-control input-lg" type="text" placeholder="Phone">
+                        </p>
+                        {#<p>
+                            <textarea placeholder="Please input you note here..." class="form-control input-lg" rows="1" name="checkout-note" id="modal-checkout-delivery-note"></textarea>
+                        </p>#}
+
+                        <hr>
+
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#modal-checkout-type-pay-delivery" data-toggle="tab">To be paid on delivery</a></li>
+                            <li><a href="#modal-checkout-type-pay-phone" data-toggle="tab">Card over phone</a></li>
+                            <li><a href="#modal-checkout-type-pay-payed" data-toggle="tab">Already paid</a></li>
+                        </ul>
+
+                        <div class="mtop10"></div>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="modal-checkout-type-pay-delivery">
+                                <div class="btn-group btn-group-justified" id="modal-checkout-delivery-payment-types"></div>
+                                <div id="delivery-taxes-container"></div>
+                            </div>
+
+                            <div class="tab-pane" id="modal-checkout-type-pay-phone">
+                                <div class="btn-group btn-group-justified" id="modal-checkout-delivery-payment-types-b"></div>
+                                <div class="mtop10"></div>
+                                <em>Take Customer's Card Details Now</em>
+                            </div>
+
+                            <div class="tab-pane" id="modal-checkout-type-pay-payed">
+                                <div class="btn-group btn-group-justified" id="modal-checkout-delivery-payment-types-b">
+                                    <a role="button" class="btn btn-primary btn-lg button-pay-type" data-type="1" data-type-ls="delivery" data-type-el="#delivery-taxes-container">Cash</a>
+                                    <a role="button" class="btn btn-primary btn-lg button-pay-type" data-type="2" data-type-ls="delivery" data-type-el="#delivery-taxes-container">Card</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mtop10"></div>
+
+                        <hr />
+
+                        <p>
+                            <label class="modal-checkout-delivery-printers"  for="modal-checkout-delivery-printers">Select printer</label>
+
+                        <div id="modal-checkout-delivery-printers"></div>
+                        </p>
+
+                        <hr>
+
+                        <p class="order-warning bg-danger"></p>
+
+                        <p>
+                            <button class="btn btn-success btn-block btn-lg" onclick="myCart.checkoutDelivery();">Finish<span class="checout-total-container"></span></button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+{% raw %}
+<script id="modal-checkout-takeway-list" type="text/template">
+    {{#tables}}
+        <div class="btn-group btn-group-justified" style="margin-bottom: 5px">
+            {{#list}}
+                <label class="btn btn-primary btn-lg modal-checkout-takeway-list-item">
+                    <input type="radio" name="options" id="option3" value="{{ value }}"> {{ name }}
+                </label>
+            {{/list}}
+        </div>
+    {{/tables}}
+</script>
+
+<script id="modal-checkout-delivery-suburb-options" type="text/template">
+    {{#suburb}}
+        <option value="{{ name }}">{{ name }}</option>
+    {{/suburb}}
+</script>
+
+<script id="modal-checkout-printer-list" type="text/template">
+    <div class="btn-group btn-group-justified"">
+        {{#printers}}
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-lg btn-printer btn-printer-{{ type }}" data-count="0" data-id="{{ id }}">{{ name }}<span></span></button>
+            </div>
+        {{/printers}}
+    </div>
+</script>
+{% endraw %}

@@ -1,0 +1,84 @@
+<div class="container min-spacer container-full">
+
+    <div class="panel-group" id="block-order-details">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <span id="expand-tab" class="glyphicon glyphicon-resize-vertical">Resize Tab</span>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-order">
+                        <span id="client-details-container">New Order</span>
+                    </a>
+                    
+                </h4>
+            </div> 
+            <div id="collapse-order" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <div class="row">
+
+                        <div class="con-lg-6 col-md-6 col-sm-12 col-xs-12 cart-items-list" id = "cart-items-list">
+                            <table class="table table-bordered table-striped" id="list-cart">
+                                <tbody>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="con-lg-6 col-md-6 col-sm-12 col-xs-12" id = "function_buttons">
+                            <div class="well">
+
+                                <div class="btn-group btn-group-justified mbot10" id="userActionButtons">
+                                    <a role="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#modal-discount">+/-</a>
+                                    <a role="button" class="btn btn-primary btn-lg"  id="btn-park-order" data-toggle="modal" data-target="#modal-park-order"><span class="u">P</span>ark</a>
+                                    <a role="button" class="btn btn-primary btn-lg"  id="top-accordion-void"><span class="u">V</span>oid</a>
+                                    <!--<a role="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#modal-universal-product"><span class="u">M</span>isc.</a>-->
+                                </div>
+
+                                <div id="garbage" style="display: none">
+                                    <a role="button" class="btn btn-primary btn-lg"  id="glympse-button" onclick="window.location.href = 'glympse';">Driver<span class="u">s</span></a>
+                                </div>
+
+                                <div class="btn-group btn-group-justified mbot10" id="accordeon-order-types-list"></div>
+								
+								
+								
+								
+						
+								<div class="btn-group btn-group-justified hide1" id="accordeon-order-prices-list">
+								{#}
+                                {% for item in priceBtns %}
+								    {% if loop.first %}
+									<a role="button" class="btn btn-primary btn-lg price-type-action active" data-price-group="delivery" data-price="{{ item.data }}">{{ item.label }}</a>
+									{% else %}
+									<a role="button" class="btn btn-primary btn-lg price-type-action" data-price-group="dine-in" data-price="{{ item.data }}">{{ item.label }}</a>
+									{% endif %}		
+								{% endfor %}	   
+                             
+                                #}    
+
+                                {% for item  in priceBtns %}
+                                         
+                                    <a role="button" class="btn btn-primary btn-lg price-type-action" data-price-group="{{ item.pricegroup }}" data-price="{{ item.data }}">{{ item.label }}</a>    
+                                 
+                                {% endfor %}
+                                        
+								</div>
+                                <!--<input type="text" class="form-control mtop10" placeholder="Please input you note here..." id="global-note-holder"/>
+                                -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div><!-- /.container -->
+
+{% raw %}
+<script id="accordeon-order-types-template" type="text/template">
+    {{#.}}
+        <a role="button" class="btn btn-default btn-lg order-type-action{{#selected}} active{{/selected}}" data-action="{{ action }}" data-id="{{ id }}">{{ name }}</a>
+    {{/.}}
+</script>
+{% endraw %}

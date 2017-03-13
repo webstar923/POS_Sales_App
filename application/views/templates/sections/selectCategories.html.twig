@@ -1,0 +1,8 @@
+{% raw %}
+<script id="template-select-category" type="text/template">
+    <li class="active"><a  class="category-changer" data-cat="0" data-index="0">All Categories</a></li>
+    {{#categories}}
+        <li style="background: {{ color }};"><a  class="category-changer" data-cat="{{ id }}" data-index="{{ no }}">{{ name }}</a></li>
+    {{/categories}}
+</script>
+{% endraw %}

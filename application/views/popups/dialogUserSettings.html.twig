@@ -1,0 +1,338 @@
+<!-- Modal -->
+<div class="modal fade" id="ui-settings-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="ui-settings-modal-container"></div>
+                <div id="admin-open-close-tilt" class="hide">
+                    <hr>
+                    <div class="row">
+                        <button class="btn btn-lg btn-success btn-block hide" id="ui-settings-modal-tilt-open-button" onclick="$('#ui-settings-modal').modal('hide');
+                                $('#ui-open-tilt').modal('show')">Open Till</button>
+                        <div class="text-center hide" id="ui-settings-modal-tilt-close-button">
+                            <div class="mtop10"></div>
+                            <button class="btn btn-lg btn-danger btn-block" onclick="myCart.closeTiltStep1();">Close Till</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="ui-close-tilt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <legend>Close Till </legend>
+                <div id="close-till-header">
+                    The cash drawer was open on <b><span id="ui-close-tilt-modal-date"></span></b> with balance of <b>$<span id="ui-close-tilt-modal-open-balance"></span></b>
+                </div>
+                <form id="ui-form-balances">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+                                    Cash Sales:
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 totals-on-close">
+                                    <b>$<span id="ui-close-tilt-modal-money-in"></span></b>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+                                    Card Sales:
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 totals-on-close">
+                                    <b>$<span id="ui-close-tilt-modal-cc-in"></span></b>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+                                    Online Paid Sales:
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 totals-on-close">
+                                    <b>$<span id="ui-close-tilt-modal-paid"></span></b>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6 total-on-close">
+                                    Total Sales:
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 totals-on-close total-on-close">
+                                    <b>$<span id="ui-close-tilt-modal-grant"></span></b>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6 cash-in-drawer ">
+                                    Cash in Drawer:
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 totals-on-close">
+                                    <b>$<span id="ui-close-tilt-modal-cash-in-drawer"></span></b>
+                                </div>
+                            </div>
+                        </li>
+
+                        {#                        <div class="text-center">
+                                                    
+                        </div>
+#}
+                        <li class="list-group-item">
+                            <div class="row">
+
+                                <div class="text-center">
+                                    <input type="checkbox" name="checkbox_hide_closetilt_printers" checked>
+                                </div>
+                                <div class="text-center state_closetilt_printers">
+                                    <span class="state_on">On</span>
+                                </div>
+
+                                <div id="ui-settings-printers">
+                                </div>
+
+
+                                <div class="mtop10 close-till-warning">
+                                    <span style="color:red; text-align:center"><em><small>Please check the balances above whether they match the physical cash in the drawer and your EFTPOS card payments. Close the titl when ready.<br> Note this operation can't be undone.</small></em></span>
+                                </div>
+
+
+                                <button type="button" id="close-till-button" class="btn btn-success btn-block btn-lg" data-dismiss="modal" onclick="myCart.closeTiltStep2();">Close Till</button>             
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="ui-open-tilt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <legend>Opening Balance</legend>
+                <div class="row">
+                    <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+                        Opening Balance:
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+                        <input type="number" class="form-control" placeholder="0.00" id="ui-settings-modal-money-in" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-lg btn-success" data-dismiss="modal" onclick="myCart.saveBalances();">Save</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+{% raw %}
+    <script id="ui-settings-modal-switch" type="text/template">
+
+        <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+        Tab Collapsed On Load
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+        <div class="btn-group">
+        <button type="button" class="btn btn-default group_button{{#tab_collapsed}} active{{/tab_collapsed}}" data-group="tab_collapsed" data-value="on">Yes</button>
+        <button type="button" class="btn btn-default group_button{{^tab_collapsed}} active{{/tab_collapsed}}" data-group="tab_collapsed" data-value="off">No</button>
+        </div>
+        </div>
+        </div>
+        <hr class="front_end_setting">
+
+
+        <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+        Show Category On Load
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+        <div class="btn-group">
+        <button type="button" class="btn btn-default group_button{{#category_collapsed}} active{{/category_collapsed}}" data-group="category_collapsed" data-value="on">Show</button>
+        <button type="button" class="btn btn-default group_button{{^category_collapsed}} active{{/category_collapsed}}" data-group="category_collapsed" data-value="off">Hide</button>
+        </div>
+        </div>
+        </div>
+        <hr class="front_end_setting">
+
+
+        <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+        Show Aplha Scroll
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+        <div class="btn-group">
+        <button type="button" class="btn btn-default group_button{{#show_alphascroll}} active{{/show_alphascroll}}" data-group="show_alphascroll" data-value="on">Show</button>
+        <button type="button" class="btn btn-default group_button{{^show_alphascroll}} active{{/show_alphascroll}}" data-group="show_alphascroll" data-value="off">Hide</button>
+        </div>
+        </div>
+        </div>
+        <hr class="front_end_setting">
+
+
+        <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+        Show Caller ID
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+        <div class="btn-group">
+        <button type="button" class="btn btn-default group_button{{#show_called_id}} active{{/show_called_id}}" data-group="show_called_id" data-value="on">Show</button>
+        <button type="button" class="btn btn-default group_button{{^show_called_id}} active{{/show_called_id}}" data-group="show_called_id" data-value="off">Hide</button>
+        </div>
+        </div>
+        </div>
+        <hr class="front_end_setting">
+        <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+        Default Printer
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+        <select class="form-control alter-dropdown" id="user-setting-default-printer">
+        {{#printers}}
+        <option value="{{ id }}"{{#selected}} selected{{/selected}}>{{ name }}</option>
+        {{/printers}}
+        </select>
+        </div>
+        </div>
+        <hr class="front_end_setting">
+        
+        <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+        Run Script On Exit
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+        <select class="form-control alter-dropdown" id="user-setting-default-script">
+        {{#scripts}}
+        <option value="{{ id }}"{{#selected}} selected{{/selected}}>{{ name }}</option>
+        {{/scripts}}
+        </select>
+        </div>
+        </div>
+        
+        <hr class="front_end_setting">
+
+
+        <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+        2-Line Display On
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+        <select class="form-control alter-dropdown" id="user-setting-simple-display">
+        {{#simple_display}}
+        <option value="{{ id }}"{{#selected}} selected{{/selected}}>{{ name }}</option>
+        {{/simple_display}}
+        </select>
+        </div>
+        </div>
+        
+        <hr class="front_end_setting">
+        
+        <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+        Default Price Group
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+        <select class="form-control alter-dropdown" id="user-setting-default-price">
+        {{#prices}}
+        <option value="{{ id }}"{{#selected}} selected{{/selected}}>{{ name }}</option>
+        {{/prices}}
+        </select>
+        </div>    
+        </div>
+
+
+        {{#drawer_show_kick_open}}
+        <hr class="front_end_setting">
+        <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+        Drawer Kick Open
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+        <select class="form-control alter-dropdown" id="user-setting-default-drawer">
+        {{#printer_drawer_kick_open}}
+        <option value="{{ id }}"{{#selected}} selected{{/selected}}>{{ name }}</option>
+        {{/printer_drawer_kick_open}}
+        </select>
+        </div>    
+        </div>
+        {{/drawer_show_kick_open}}
+
+
+        <hr class="front_end_setting">
+        <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+        Manager's Printer (for copies)
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+        <select class="form-control alter-dropdown" id="user-setting-default-manager-printer">
+        {{#manager_printer}}
+        <option value="{{ id }}"{{#selected}} selected{{/selected}}>{{ name }}</option>
+        {{/manager_printer}}
+        </select>
+        </div>    
+        </div>
+
+        <hr class="front_end_setting">
+        <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+        On Park
+        </div> 
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6"> 
+        <div class="btn-group">
+        <button type="button" class="btn btn-default group_button{{#print_park_order}} active{{/print_park_order}}" data-group="park_printing_enabled" data-value="on">Print & Park</button>
+        <button type="button" class="btn btn-default group_button{{^print_park_order}} active{{/print_park_order}}" data-group="park_printing_enabled" data-value="off">Park</button>
+        </div>
+        </div>
+        </div>
+        <hr class="front_end_setting">
+        <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+        Number Of Customer's Docket Copies
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+        <select class="form-control alter-dropdown" id="user-setting-default-customer_docket_number_of_copies">
+        {{#customers_copies}}
+        <option value="{{ id }}"{{#selected}} selected{{/selected}}>{{ id }}</option>
+        {{/customers_copies}}
+        </select>
+        </div>
+        </div>
+
+
+
+    </script>
+
+
+    <script id="ui-settings-printers-template" type="text/template">
+        <div class="btn-group btn-group-justified">
+        {{#printers}}
+        {{#selected}}
+        <label class="btn btn-primary btn-lg btn-printer ui-settings-printers-item active" data-count="0" data-id="{{ id }}"> <span> </span> {{ name }}</label>
+        {{/selected}}
+        {{^selected}}
+        <label class="btn btn-primary btn-lg btn-printer ui-settings-printers-item" data-count="0" data-id="{{ id }}"> <span></span> {{ name }}</label>
+        {{/selected}}
+        {{/printers}}
+        </div>
+    </script>
+{% endraw %}

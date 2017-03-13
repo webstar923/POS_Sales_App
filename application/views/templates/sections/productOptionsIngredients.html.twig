@@ -1,0 +1,78 @@
+{% raw %}
+<!--script id="template-product-options-ingredients" type="text/template">
+  <div class="first-ingredients-panel" id="ingredients-holder-{{ variation_id }}" data-variation="{{ variation_id }}">
+    <div class="options_content_holder">
+        <ul class="nav nav-tab make_inline" role="tablist">
+            <li class="active"> <a href="#included-{{ variation_id }}-{{ dataIndex }}" role="tab" data-toggle="tab"> Included Ingr. </a> </li>
+            <li> <a href="#extra-{{ variation_id }}-{{ dataIndex }}" class="extra-tab-btn" role="tab" data-toggle="tab" > Extra Ingr. </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade in active included" id="included-{{ variation_id }}-{{ dataIndex }}">
+                {{#items}}
+                {{#is_default}}
+                {{#items}}
+                    <div class="checkbox">
+                        <input id="{{ ingredient_id }}-{{ variation_id }}" type="checkbox" class="product_extra_options_first_default-{{dataIndex}} css-checkbox" value="{{ ingredient_id }}"
+                            checked="checked" data-label="{{ ingredient_name }}" data-part_number={{dataIndex}}>
+                        <label class="css-label" for="{{ ingredient_id }}-{{ variation_id }}">
+                          {{ ingredient_name }}
+                        </label>
+                    </div>
+                {{/items}}
+                {{/is_default}}
+                {{/items}}
+            </div>
+            <div class="tab-pane fade extra" id="extra-{{ variation_id }}-{{ dataIndex }}">
+            <button type="submit" class="btn btn-default glyphicon glyphicon-plus-sign add_extra_ingredients">  Add More Extra Ingredients</button>
+              <input class="extra-ingredients" data-variation="{{ variation_id }}" placeholder=""  type="hidden">
+            </div>
+        </div>
+    </div>
+  </div>
+</script-->
+
+<template id="panel-product-options-ingredients" >
+  <div class="first-ingredients-panel" v-if="d" v-bind:id="'ingredients-holder-'+ d.variation_id" >
+    <div class="options_content_holder">
+        <ul class="nav nav-tab make_inline" role="tablist">
+            <li class="active"> <a v-bind:href="'#included-'+ d.variation_id +'-' + d.dataIndex" role="tab" data-toggle="tab"> Included Ingr. </a> </li>
+            <li> <a v-bind:href="'#extra-'+ d.variation_id + '-' + d.dataIndex" class="extra-tab-btn" role="tab" data-toggle="tab" > Extra Ingr. </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade in active included" v-bind:id="'included-' + d.variation_id + '-' + d.dataIndex">
+                
+                <div class="checkbox" v-for="(item, index) in d.items[0].items">
+                    <input v-bind:id="item.ingredient_id + '-' + d.variation_id" type="checkbox" v-bind:class="'product_extra_options_first_default-'+ d.dataIndex" class="css-checkbox" v-model="item.checked">
+                    <label class="css-label" v-bind:for="item.ingredient_id + '-'+ d.variation_id">
+                      {{ item.ingredient_name }}
+                    </label>
+                </div>
+                
+            </div>
+            <div class="tab-pane fade extra" v-bind:id="'extra-' + d.variation_id + '-' +  d.dataIndex">
+                <div v-show="d.items[1].multiSelectBoxShow" style="background-color: white;border: 1px solid #5897fb;">
+                    <ul class="select2-results">
+                        <li class="select2-results-dept-0 select2-result select2-result-selectable" style="display: list-item; border: none;" v-for="(item, index) in d.items[1].items" v-on:click="addExtraIngredient(item)">                          
+                            <div class="select2-result-label" role="option">
+                                <span class="select2-match"></span>
+                                {{item.text}}
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-default add_extra_ingredients_close" v-on:click="onMultiBoxDlg(false);">CLOSE</button>
+                </div>
+                <button class="btn btn-default glyphicon glyphicon-plus-sign add_extra_ingredients" v-on:click="onMultiBoxDlg(true);" v-show="!d.items[1].multiSelectBoxShow">Add More Extra Ingredients</button>
+                <div class="select2-container select2-container-multi extra-ingredients">
+                    <ul class="select2-choices">
+                        <li class="select2-search-choice" style="display: list-item;" v-for="(item, index) in d.items[1].selectedItems" v-on:click="removeExtraIngredient(index)">
+                            <span class="input css-checkbox checked"></span>     
+                            <div>{{item.text}}</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</template>
+{% endraw %}

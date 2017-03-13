@@ -1,0 +1,327 @@
+<!-- Modal -->
+<div class="modal fade" id="modal-checkout-type" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center" id="modal-checkout-type-takeaway-modal">
+                <button type="button" class="close" id="modal-checkout-type-close" aria-hidden="true">&times;</button>
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" id="modal-checkout-type-nav">
+                    <li class="active"><a href="#modal-checkout-type-takeaway" class="checkout-tabs" data-toggle="tab" data-type="takeaway">Dine-in/Takeway</a></li> 
+                    <li><a href="#modal-checkout-type-delivery" class="checkout-tabs" data-toggle="tab" data-type="delivery">Delivery/Pickup</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="modal-checkout-type-takeaway">
+
+
+
+                        <div class="mtop10"></div>
+                        <!--<label for="modal-checkout-table-list">Select Table/Takeway</label>
+                        -->
+                        <div id="modal-checkout-table-list"></div>
+
+                        <div class="mtop10"></div>
+                        <input type="text" class="form-control input-lg" placeholder="Note" id="takeaway-note">
+                        <div class="mtop10"></div>
+
+
+                        <input type="hidden" id="checkout-input-total" value="" />
+                        <div class="mtop10"></div>
+                        <div class="mtop10"></div>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" id="takeaway-nav-pay">
+                            <li><a href="#modal-checkout-type-pay-delivery" data-toggle="tab" id="already_paid_tab_dinein">Already paid</a></li>
+                            <li class="active"><a href="#modal-checkout-type-pay-phone" data-toggle="tab" id="modal-checkout-type-pay-phone-button">Pay now</a></li>
+                            <li><a href="#modal-checkout-type-pay-payed" data-toggle="tab" id="modal-checkout-type-pay-payed-button">Will pay later</a></li>
+                        </ul>
+
+                        <div class="mtop10"></div>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane" id="modal-checkout-type-pay-delivery">
+                                <input class="form-control input-lg" type="text" placeholder="Enter credit card fee" id="dinein-checkout-fee">
+                            </div>
+
+                            <div class="tab-pane active" id="modal-checkout-type-pay-phone">
+                                <div class="btn-group btn-group-justified button-wrap" id="pay_now_buttons">
+
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="modal-checkout-type-pay-payed">
+                                <div class="btn-group btn-group-justified button-wrap" id="will_pay_on_pickup">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mtop10"></div>
+                        <div class="mtop10"></div>
+
+                        <!--
+                        <label class="modal-checkout-delivery-printers"  for="modal-checkout-takeway-printers">Select printer</label>
+                        -->
+
+                        <!-- Nav tabs for printer -->
+                        <ul class="nav nav-tabs" id="takeaway-nav-pay">
+                            <li  class="active"><a href="#switching_to_kitchen_docket" data-toggle="tab" id="id_kitchen_docket">Kitchen Docket</a></li>
+                            <li><a href="#swithing_to_customers_docket" data-toggle="tab" id="id_customers_docket">Customer's Docket</a></li>                            
+                        </ul>   
+
+
+                        <div class="mtop10"></div>
+
+                        <div id="modal-checkout-takeway-printers" class="slave_part_modal-checkout-takeway-printers"></div>
+                        <div id="modal-checkout-takeway-printers_second"  class="leader_part_modal-checkout-takeway-printers"></div>
+
+
+
+
+                        <div class="mtop10"></div>
+                        <div class="mtop10"></div>
+                        <hr>
+                        <!--
+                        <label for="modal-checkout-takeaway-time">Now/Later</label>
+                        -->
+                        <div id="modal-checkout-takeaway-time" class="clearfix">
+                            <div class="btn-group btn-group-justified pull-left two-thirds" id="modal-checkout-takeaway-time-types">
+                                <a role="button" class="btn btn-primary btn-lg button-pay-type-time active" data-type="asap">ASAP</a>
+                                <a role="button" class="btn btn-primary btn-lg button-pay-type-time" data-type="later">For Later</a>
+                            </div>
+                            <div class="pull-right one-thirds">
+                                <span class="takeaway-type-item takeaway-type-asap">Customer wants the order ASAP</span>
+                                <div class="takeaway-type-item takeaway-type-later hide">
+                                    <input id="takeaway-type-later-datepicker" placeholder="Order for:" class="form-control input-lg" type="text" readonly/>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="mtop10"></div>
+                        <p>
+                            <button class="btn btn-success btn-block btn-lg" id="checkout-submit-button">Finish: $<span class="checout-total-container"></span></button>
+                        </p>
+
+
+
+
+
+                    </div>
+                    <div class="tab-pane" id="modal-checkout-type-delivery">
+
+
+                        <p id="modal-checkout-delivery-ph">
+                            <input id="modal-checkout-delivery-phone" data-id-user="0" class="form-control input-lg" type="text" placeholder="Phone">
+                        </p>
+                        <p>
+                            <input id="modal-checkout-delivery-company" class="form-control input-lg" type="text" placeholder="Company">
+                        </p>
+
+                        <p>
+                        <div class="mtop10"></div>
+                        <input id="modal-checkout-delivery-name" class="form-control input-lg" type="text" placeholder="Name">
+                        </p>
+
+                        <p id="modal-checkout-delivery-p">
+                            <input id="modal-checkout-delivery-address" class="form-control input-lg" type="text" placeholder="Address - leave blank for pickup"><button class="btn btn-danger" type="button" id="clean_address_field"> X </button>
+                        </p>
+                        <p>
+                            <select class="form-control input-lg hidden" id="modal-checkout-delivery-suburb">
+                            </select>
+                        </p>
+
+                        <div class="mtop10"></div>
+                        <input type="text" class="form-control input-lg" placeholder="Note" id="delivery-note">
+                        <div class="mtop10"></div>
+
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" id="delivery-nav-pay">
+                            <li><a href="#asd1" data-toggle="tab" id="already_paid_tab_takeaway">Already paid</a></li>
+                            <li><a href="#asd2" data-toggle="tab" id="delivery-nav-pay-pay-now">Pay now</a></li>
+                            <li class="active"><a href="#asd3" data-toggle="tab" id="will_pay_on_delivery">Will pay on delivery/pickup</a></li>
+                        </ul>
+
+                        <div class="mtop10"></div>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane" id="asd1">
+                                <input class="form-control input-lg" type="text" id="delivery-checkout-fee" placeholder="Enter credit card fee">
+                            </div> 
+
+                            <div class="tab-pane" id="asd2">
+                                <div class="btn-group btn-group-justified" id="modal-checkout-delivery-payment-types-b"></div>
+                                <small style="font-style: italic;color:red;margin-top:10px;">* Take Money/Charge Customer's Card Now</small>
+                            </div>
+
+                            <div class="tab-pane active" id="asd3">
+                                <div class="btn-group btn-group-justified" id="modal-checkout-delivery-payment-types-c">
+                                    {#<a role="button" class="btn btn-primary btn-lg button-pay-type-takeout" data-type="1" data-type-ls="delivery" data-type-el="#delivery-taxes-container">Cash</a>
+                                    <a role="button" class="btn btn-primary btn-lg button-pay-type-takeout" data-type="2" data-type-ls="delivery" data-type-el="#delivery-taxes-container">Card</a>#}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mtop10"></div>
+
+
+
+                        <!--
+                        <label class="modal-checkout-delivery-printers"  for="modal-checkout-delivery-printers">Select printer</label>
+                        -->
+
+                        <!-- Nav tabs for printer -->
+                        <ul class="nav nav-tabs" id="takeaway-nav-pay">  
+                            <li  class="active"><a href="#switching_to_kitchen_docket_delivery" data-toggle="tab" id="id_kitchen_docket_delivery">Kitchen Docket</a></li>
+                            <li><a href="#swithing_to_customers_docket_delivery" data-toggle="tab" id="id_customers_docket_delivery">Customer's Docket</a></li>                            
+                        </ul>   
+
+                        <div class="mtop10"></div>
+
+                        <div id="modal-checkout-delivery-printers"></div> 
+                        <div id="modal-checkout-delivery-printers_second"></div>
+
+
+                        <p class="order-warning bg-danger"></p>
+
+                        <!--
+                        <label for="modal-checkout-delivery-time">Delivery Now/Later</label>
+                        -->
+                        <hr> 
+                        <div id="modal-checkout-delivery-time" class="clearfix">
+                            <div class="btn-group btn-group-justified pull-left two-thirds" id="modal-checkout-delivery-time-types">
+                                <a role="button" class="btn btn-primary btn-lg button-pay-type-time active" data-type="asap">ASAP</a>
+                                <a role="button" class="btn btn-primary btn-lg button-pay-type-time" data-type="later">For Later</a>
+                            </div>
+                            <div class="pull-right one-thirds">
+                                <span class="delivery-type-item delivery-type-asap">Customer wants the order ASAP</span>
+                                <div class="delivery-type-item delivery-type-later hide">
+                                    <input id="delivery-type-later-datepicker" placeholder="Order for:" class="form-control input-lg" type="text" readonly />
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="mtop10"></div>
+                        <p>
+                            <button class="btn btn-success btn-block btn-lg" id="checkout-delivery-button">Finish: $<span class="checout-total-container"></span></button>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="modal-change-back" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Change back is $<span id="modal-change-back-count"></span></h3>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+{% raw %}
+    <script id="payment-types-list" type="text/template"> 
+        {{#list}}
+        <a role="button" class="btn btn-primary btn-lg button-pay-type-{{ type }}" data-type="{{ id }}">{{ name }}{{ tax }}</a>
+        {{/list}}
+    </script>
+
+    <script id="table-list-template" type="text/template">
+        {{#tables}}
+        <div class="btn-group btn-group-justified" style="margin-bottom: 5px">
+        {{#list}}
+
+        {{#should_be_selected}}        
+        <label class="btn btn-primary btn-lg modal-checkout-takeway-list-item active">
+        {{/should_be_selected}}
+
+        {{^should_be_selected}}                
+        <label class="btn btn-primary btn-lg modal-checkout-takeway-list-item">
+        {{/should_be_selected}}
+
+        <input type="radio" name="options" value="{{ value }}"> {{ name }}                        
+        </label>
+        {{/list}}
+        </div>
+        {{/tables}}
+    </script>
+
+    <script id="modal-checkout-printer-list" type="text/template">
+        <div class="btn-group btn-group-justified"">
+        {{#printers}}
+        <div class="btn-group">
+        {{#selected}}
+        <button type="button" class="btn btn-primary btn-lg btn-printer btn-printer-{{ type }} active" data-count="0" data-id="{{ id }}"><span> </span>{{ name }}</button>
+        {{/selected}} 
+        {{^selected}}
+        <button type="button" class="btn btn-primary btn-lg btn-printer btn-printer-{{ type }}" data-count="0" data-id="{{ id }}"><span></span>{{ name }}</button>
+        {{/selected}}
+        </div>
+        {{/printers}}
+        </div>
+    </script>
+
+
+
+    <script id="modal-checkout-printer-list-radiobuttons" type="text/template">
+        <div class="btn-group"  data-toggle="buttons">
+        {{#printers}}
+
+
+        {{#selected}}
+
+        <label class="btn btn-primary btn-lg active">
+        <input type="radio" automcomplete="off" name="options"  class="btn btn-primary btn-lg btn-printer btn-printer-{{ type }} checked" data-count="0" data-id="{{ id }}">{{ name }}
+        </label>
+        {{/selected}} 
+
+
+        {{^selected}}
+        <label class="btn btn-primary btn-lg">
+        <input type="radio" automcomplete="off" name="options" class="btn btn-primary btn-lg btn-printer btn-printer-{{ type }}" data-count="0" data-id="{{ id }}">{{ name }}
+        </label>
+
+        {{/selected}}
+
+        {{/printers}}                        
+        </div>
+
+
+
+    </script>
+
+
+    <script id="modal-checkout-delivery-suburb-options" type="text/template">
+        {{#suburb}}
+        <option data-id="{{ id }}" value="{{ name }}">{{ name }}</option>
+        {{/suburb}}
+    </script>
+
+    <script id="modal-checkout-dinein-money" type="text/template">
+        <div id="modal-checkout-dinein-money-module" class="modal-checkout-dinein-money-module_class">
+        <input type="number" class="form-control mtop10 hidden" id="modal-checkout-dinein-money-input" placeholder="0.00" style="text-align: right;"/>
+        <div class="btn-group btn-group-justified mtop10 no-border-radius">
+        <label type="button" class="btn btn-danger btn-lg modal-checkout-dinein-money-trigger" data-val="x">X</label>
+        <label type="button" class="btn btn-default btn-lg modal-checkout-dinein-money-trigger" data-val="100">$100</label>
+        <label type="button" class="btn btn-default btn-lg modal-checkout-dinein-money-trigger" data-val="50">$50</label>
+        <label type="button" class="btn btn-default btn-lg modal-checkout-dinein-money-trigger" data-val="20">$20</label>
+        <label type="button" class="btn btn-default btn-lg modal-checkout-dinein-money-trigger" data-val="10">$10</label>
+        <label type="button" class="btn btn-default btn-lg modal-checkout-dinein-money-trigger" data-val="5">$5</label>
+        </div>
+        <div class="btn-group btn-group-justified no-border-radius">
+        <label type="button" class="btn btn-default btn-lg modal-checkout-dinein-money-trigger" data-val="2">$2</label>
+        <label type="button" class="btn btn-default btn-lg modal-checkout-dinein-money-trigger" data-val="1">$1</label>
+        <label type="button" class="btn btn-default btn-lg modal-checkout-dinein-money-trigger" data-val="0.5">&#162;50</label>
+        <label type="button" class="btn btn-default btn-lg modal-checkout-dinein-money-trigger" data-val="0.2">&#162;20</label>
+        <label type="button" class="btn btn-default btn-lg modal-checkout-dinein-money-trigger" data-val="0.1">&#162;10</label>
+        <label type="button" class="btn btn-default btn-lg modal-checkout-dinein-money-trigger" data-val="0.05">&#162;5</label>
+        </div>
+        </div>
+    </script>
+{% endraw %}
